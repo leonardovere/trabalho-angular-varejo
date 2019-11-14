@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>Cadastro de Marca</h1>
+<div mat-dialog-content>
+
+        <mat-form-field class="full-width">
+            <input name="nome" matInput placeholder="Nome da marca" [(ngModel)]="marca.nome">
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field class="full-width">
+            <input name="unidadeMedida" matInput 
+                placeholder="Unidade de medida" [(ngModel)]="marca.unidadeMedida">
+        </mat-form-field>
+</div>
+
+<div mat-dialog-actions fxLayout="row" fxLayoutAlign="end center">
+    <button mat-button (click)="cancelar()" color="accent">Cancelar</button>
+    <button mat-button (click)="salvar()" color="primary">Salvar</button>
+</div>

@@ -1,0 +1,29 @@
+<div style="margin-left: 15px; margin-top: 15px;">
+
+    <mat-list id="marcalista" style="max-height: 150vh; overflow-y: auto;">
+
+        <h1 mat-subheader>Pessoas</h1>
+
+        <div style="margin-left: 15px; margin-top: 15px;">
+
+            <button id="novaPessoa" mat-fab class="bottomButtom"
+            color="accent" (click)="novaPessoa()">
+                <mat-icon>add</mat-icon>
+            </button>
+
+            <mat-list-item *ngFor="let pessoa of pessoas">
+
+                <h4 mat-line>{{pessoa.codigo}} - {{ pessoa.nome }} - {{ pessoa.sexo == 'M' ? 'Masculino' : 'Feminino' }} - {{ pessoa.cpf }} - {{ pessoa.ativo ? 'Online' : 'Offline' }}</h4>
+                <button mat-icon-button (click)="remover(pessoa)">
+                    <mat-icon class="iconcolor"
+                    aria-label="Remover">delete</mat-icon>
+                </button>
+
+
+            </mat-list-item>
+
+        </div>
+
+    </mat-list>
+
+</div>

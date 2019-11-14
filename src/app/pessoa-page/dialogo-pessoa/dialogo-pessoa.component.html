@@ -1,0 +1,48 @@
+<h1 mat-dialog-title>Cadastro de Pessoa</h1>
+<div mat-dialog-content [ngStyle]="{'width': '400px'}">
+
+        <mat-form-field>
+            <input name="nome" matInput placeholder="Nome da pessoa" [(ngModel)]="pessoa.nome">
+        </mat-form-field><br>
+
+        <mat-form-field>
+            <input name="cpf" matInput placeholder="CPF da pessoa" [(ngModel)]="pessoa.cpf">
+        </mat-form-field><br>
+
+        <mat-form-field>
+            <input name="end" matInput placeholder="Endereço da pessoa" [(ngModel)]="pessoa.endereco">
+        </mat-form-field><br>
+
+        <mat-form-field>
+          <mat-label>Sexo da pessoa</mat-label>
+          <mat-select [(ngModel)]="pessoa.sexo" name="sexo">
+            <mat-option *ngFor="let sexo of sexos" [value]="sexo.valor">
+              {{ sexo.nome }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field><br>
+
+        <mat-form-field>
+            <input name="login" matInput placeholder="Login da pessoa" [(ngModel)]="pessoa.login">
+        </mat-form-field><br>
+
+        <mat-form-field>
+          <input name="senha" [type]="esconderSenha ? 'password' : 'text'" matInput placeholder="Senha da pessoa" [(ngModel)]="pessoa.senha">
+
+          <button mat-icon-button matSuffix (click)="esconderSenha = ! esconderSenha">
+            <mat-icon>{{ esconderSenha ? 'visibility_on' : 'visibility_off' }}</mat-icon>
+          </button>
+        </mat-form-field><br>
+
+        <mat-slide-toggle color="warn" [(ngModel)]="pessoa.ativo" [ngStyle]="{'display': flex, 'flexDirection': row}">
+          <div [ngStyle]="{'display': 'flex', 'flex-direction': 'row'}">
+              {{ pessoa.ativo ? 'Online' : 'Offline'}} <div [class]="pessoa.ativo ? 'online' : 'offline'"></div>
+          </div>
+        </mat-slide-toggle><br>
+
+</div>
+
+<div mat-dialog-actions fxLayout="row" fxLayoutAlign="end center">
+    <button mat-button (click)="cancelar()" color="accent">Cancelar</button>
+    <button mat-button (click)="salvar()" color="primary">Salvar</button>
+</div>

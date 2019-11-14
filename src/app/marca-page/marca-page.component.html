@@ -1,0 +1,29 @@
+<div style="margin-left: 15px; margin-top: 15px;">
+
+    <mat-list id="marcalista" style="max-height: 150vh; overflow-y: auto;">
+
+        <h1 mat-subheader>Marcas</h1>
+
+        <div style="margin-left: 15px; margin-top: 15px;">
+
+            <button id="novaMarca" mat-fab class="bottomButtom" 
+            color="accent" (click)="novaMarca()">
+                <mat-icon>add</mat-icon>
+            </button>
+
+            <mat-list-item *ngFor="let marca of marcas">
+
+                <h4 mat-line>{{marca.nome}}</h4>
+                <button mat-icon-button (click)="remover(marca)">
+                    <mat-icon class="iconcolor" 
+                    aria-label="Remover">delete</mat-icon>
+                </button>
+
+
+            </mat-list-item>
+
+        </div>
+
+    </mat-list>
+
+</div>

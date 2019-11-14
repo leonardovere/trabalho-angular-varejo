@@ -1,0 +1,42 @@
+<h1 mat-dialog-title>Cadastro de Produto</h1>
+<div mat-dialog-content [ngStyle]="{'width': '400px'}">
+
+        <mat-form-field>
+            <input name="nome" matInput placeholder="Nome do produto" [(ngModel)]="produto.nome">
+        </mat-form-field><br>
+
+        <mat-form-field>
+          <mat-label>Marca do produto</mat-label>
+          <mat-select [(ngModel)]="produto.marca" name="produto">
+            <mat-option *ngFor="let marca of marcas" [value]="marca">
+              {{ marca.nome }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field><br>
+
+        <mat-form-field>
+            <input name="preco" type="number" matInput placeholder="Preço do produto (R$)" [(ngModel)]="produto.preco">
+        </mat-form-field><br>
+
+        <mat-form-field>
+            <input name="precoCusto" matInput placeholder="Preço de custo do produto (R$)" [(ngModel)]="produto.precoCusto">
+        </mat-form-field><br>
+
+        <mat-form-field>
+            <input name="qtdEstoue" type="number" matInput placeholder="Quantidade de estoque" [(ngModel)]="produto.quantidadeEstoque">
+        </mat-form-field><br>
+
+        <mat-form-field>
+            <input name="ncm" type="number" matInput placeholder="NCM do produto" [(ngModel)]="produto.ncm">
+        </mat-form-field><br>
+
+        <mat-form-field>
+            <input name="codigoBarra" type="number" matInput placeholder="Codigo de barra do produto" [(ngModel)]="produto.codigoBarra">
+        </mat-form-field><br>
+
+</div>
+
+<div mat-dialog-actions fxLayout="row" fxLayoutAlign="end center">
+    <button mat-button (click)="cancelar()" color="accent">Cancelar</button>
+    <button mat-button (click)="salvar()" color="primary">Salvar</button>
+</div>

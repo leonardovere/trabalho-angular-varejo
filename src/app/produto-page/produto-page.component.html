@@ -1,0 +1,36 @@
+<div style="margin-left: 15px; margin-top: 15px;">
+
+  <mat-list id="produtolista" style="max-height: 150vh; overflow-y: auto;">
+
+      <h1 mat-subheader>Produtos</h1>
+
+      <div style="margin-left: 15px; margin-top: 15px;">
+
+          <button id="novoProduto" mat-fab class="bottomButtom"
+          color="accent" (click)="novoProduto()">
+              <mat-icon>add</mat-icon>
+          </button>
+
+          <mat-list-item *ngFor="let produto of produtos">
+
+              <h4 mat-line>
+                {{ produto.codigo }} - {{produto.nome}} - {{ produto.marca.nome }} - {{ produto.preco | currency: 'BRL' }}
+              </h4>
+
+              <button mat-icon-button (click)="remover(produto)">
+                  <mat-icon class="iconcolor"
+                  aria-label="Remover">delete</mat-icon>
+              </button>
+
+              <button mat-icon-button (click)="alterarProduto(produto)">
+                  <mat-icon class="material-icons"
+                  aria-label="Remover">build</mat-icon>
+              </button>
+
+          </mat-list-item>
+
+      </div>
+
+  </mat-list>
+
+</div>
