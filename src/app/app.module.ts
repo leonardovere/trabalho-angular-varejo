@@ -1,3 +1,6 @@
+import { ProdutoCarrinhoService } from './services/produto-carrinho.service';
+import { CarrinhoService } from './services/carrinho.service';
+import { ProdutoService } from './services/produto.service';
 import { PessoaService } from './services/pessoa.service';
 import { DialogoMarcaComponent } from './marca-page/dialogo-marca/dialogo-marca.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -24,6 +27,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MarcaPageComponent } from './marca-page/marca-page.component';
 import { PessoaPageComponent } from './pessoa-page/pessoa-page.component';
 import { Routes, RouterModule } from '../../node_modules/@angular/router';
+import { MatBadgeModule } from '@angular/material/badge';
 import {
 	MatSnackBarModule,
 	MatDialogModule,
@@ -37,11 +41,16 @@ import { DialogoPessoaComponent } from './pessoa-page/dialogo-pessoa/dialogo-pes
 import { ProdutoPageComponent } from './produto-page/produto-page.component';
 import { DialogoProdutoComponent } from './produto-page/dialogo-produto/dialogo-produto.component';
 import { DialogoAlterarProdutoComponent } from './produto-page/dialogo-alterar-produto/dialogo-alterar-produto.component';
+import { CarrinhoPageComponent } from './carrinho-page/carrinho-page.component';
+import { DialogoCarrinhoComponent } from './carrinho-page/dialogo-carrinho/dialogo-carrinho.component';
+import { DialogoAlterarCarrinhoComponent } from './carrinho-page/dialogo-alterar-carrinho/dialogo-alterar-carrinho.component';
+import { DialogoProdutosCarrinhoComponent } from './carrinho-page/dialogo-produtos-carrinho/dialogo-produtos-carrinho.component';
 
 const appRoutes: Routes = [
 	{ path: 'marca-page', component: MarcaPageComponent },
   { path: 'pessoa-page', component: PessoaPageComponent },
-  { path: 'produto-page', component: ProdutoPageComponent}
+  { path: 'produto-page', component: ProdutoPageComponent},
+  { path: 'carrinho-page', component: CarrinhoPageComponent}
 ];
 
 @NgModule({
@@ -54,7 +63,11 @@ const appRoutes: Routes = [
 		DialogoPessoaComponent,
 		ProdutoPageComponent,
 		DialogoProdutoComponent,
-		DialogoAlterarProdutoComponent
+		DialogoAlterarProdutoComponent,
+		CarrinhoPageComponent,
+		DialogoCarrinhoComponent,
+		DialogoAlterarCarrinhoComponent,
+		DialogoProdutosCarrinhoComponent
 	],
 	imports: [
 		BrowserModule,
@@ -79,18 +92,24 @@ const appRoutes: Routes = [
     MatInputModule,
     MatSlideToggleModule,
     FormsModule,
+    MatBadgeModule,
 		RouterModule.forRoot(appRoutes)
 	],
 	providers: [
 		NotificacaoService,
 		MarcaService,
-		PessoaService
+    PessoaService,
+    ProdutoService,
+    CarrinhoService,
+    ProdutoCarrinhoService
 	],
 	entryComponents: [
 		DialogoMarcaComponent,
     DialogoPessoaComponent,
     DialogoProdutoComponent,
-    DialogoAlterarProdutoComponent
+    DialogoAlterarProdutoComponent,
+    DialogoCarrinhoComponent,
+    DialogoAlterarCarrinhoComponent
 	],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
 	bootstrap: [AppComponent]

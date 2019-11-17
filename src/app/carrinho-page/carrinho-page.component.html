@@ -1,0 +1,40 @@
+<div style="margin-left: 15px; margin-top: 15px;">
+
+  <mat-list id="carrinholista" style="max-height: 150vh; overflow-y: auto;">
+
+      <h1 mat-subheader>Carrinhos</h1>
+
+      <div style="margin-left: 15px; margin-top: 15px;">
+
+          <button id="novoCarrinho" mat-fab class="bottomButtom"
+          color="accent" (click)="novoCarrinho()">
+              <mat-icon>add</mat-icon>
+          </button>
+
+          <mat-list-item *ngFor="let carrinho of carrinhos">
+
+              <h4 mat-line>
+                {{ carrinho.codigo }} - {{ carrinho.pessoa.nome }} - {{ carrinho.valorTotal | currency: 'BRL' }}
+              </h4>
+
+              <button mat-icon-button (click)="produtosCarrinho(carrinho)">
+                  <mat-icon class="material-icons" [matBadge]="carrinho.totalProdutos" matBadgeColor="primary" aria-label="Produtos">shopping_basket</mat-icon>
+              </button>
+
+              <button mat-icon-button (click)="remover(carrinho)">
+                  <mat-icon class="iconcolor"
+                  aria-label="Remover">delete</mat-icon>
+              </button>
+
+              <button mat-icon-button (click)="alterarCarrinho(carrinho)">
+                  <mat-icon class="material-icons"
+                  aria-label="Alterar">build</mat-icon>
+              </button>
+
+          </mat-list-item>
+
+      </div>
+
+  </mat-list>
+
+</div>

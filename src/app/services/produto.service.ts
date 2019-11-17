@@ -1,3 +1,4 @@
+import { Carrinho } from './../model/carrinho.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Produto } from './../model/produto.model';
@@ -27,5 +28,9 @@ export class ProdutoService {
 
     alterarProduto(produto: Produto): Observable<Produto> {
       return this.httpClient.put<Produto>(`${this.apiUrl}produtos/${produto.codigo}`, produto);
+    }
+
+    retornarQuantidadeProdutos(carrinho: Carrinho) {
+      return this.httpClient.get<number>(`${this.apiUrl}produtos/quantidadeProdutos/${carrinho.codigo}`);
     }
 }

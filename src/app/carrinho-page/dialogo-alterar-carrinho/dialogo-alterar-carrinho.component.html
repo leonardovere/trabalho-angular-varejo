@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>Alterar Carrinho</h1>
+<div mat-dialog-content [ngStyle]="{'width': '400px'}">
+
+        <mat-form-field>
+            <input name="codigo" matInput placeholder="Código do carrinho" [(ngModel)]="carrinho.codigo" disabled readonly>
+        </mat-form-field><br>
+
+        <mat-form-field>
+          <mat-label>Cliente do carrinho</mat-label>
+          <mat-select [(ngModel)]="carrinho.pessoa" name="produto" [(value)]="carrinho.pessoa">
+            <mat-option *ngFor="let pessoa of pessoas" [value]="pessoa">
+              {{ pessoa.nome }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field><br>
+
+</div>
+
+<div mat-dialog-actions fxLayout="row" fxLayoutAlign="end center">
+    <button mat-button (click)="cancelar()" color="accent">Cancelar</button>
+    <button mat-button (click)="alterar()" color="primary">Alterar</button>
+</div>
+
