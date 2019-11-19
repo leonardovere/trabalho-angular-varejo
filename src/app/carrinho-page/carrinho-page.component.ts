@@ -1,3 +1,6 @@
+import { CarrinhoComtotal } from './../model/CarrinhoComTotal.model';
+import { AdicionarProdutosAoCarrinhoComponent } from './dialogo-produtos-carrinho/adicionar-produtos-ao-carrinho/adicionar-produtos-ao-carrinho.component';
+import { ListarProdutosCarrinhoComponent } from './dialogo-produtos-carrinho/listar-produtos-carrinho/listar-produtos-carrinho.component';
 import { ProdutoCarrinhoService } from './../services/produto-carrinho.service';
 import { ProdutoService } from './../services/produto.service';
 import { CarrinhoService } from './../services/carrinho.service';
@@ -19,8 +22,8 @@ export class CarrinhoPageComponent implements OnInit {
 
 	constructor(
 		private produtoCarrinhoService: ProdutoCarrinhoService,
-    	private produtoService: ProdutoService,
-    	private carrinhoService: CarrinhoService,
+    private produtoService: ProdutoService,
+    private carrinhoService: CarrinhoService,
 		private notificacaoService: NotificacaoService,
 		private dialogo: MatDialog
 	) { }
@@ -32,7 +35,11 @@ export class CarrinhoPageComponent implements OnInit {
       for (let i = 0; i < this.carrinhos.length; i++) {
         this.produtoService.retornarQuantidadeProdutos(this.carrinhos[i]).subscribe(
           dados => {
-            this.carrinhos[i].totalProdutos = Number(dados);
+            let carrinho = new CarrinhoComtotal();
+            carrinho.codigo = this.carrinhos[i].codigo;
+            carrinho.pessoa = this.carrinhos[i].pessoa;
+            carrinho.valorTotal = this.carrinhos[i].valorTotal;
+            carrinho.totalProdutos = Number(dados);
           },
           error => {
             console.error(error);
@@ -103,8 +110,34 @@ export class CarrinhoPageComponent implements OnInit {
     );
   }
 
-  produtosDoCarrinho(carrinho: Carrinho) {
+  listarProdutosDoCarrinho(carrinho: Carrinho) {
+    this.dialogo.open(ListarProdutosCarrinhoComponent, {data: carrinho}).afterClosed()
+    .subscribe(
+      success => {},
+      error => {
+        this.notificacaoService.mostrarMensagem('Erro ao abrir tela de produtos do carrinho', 'OK', 3000);
+        console.error(error);
+      }
+    );
+  }
 
+  adicionarProdutosAoCarrinho(carrinho: Carrinho) {
+    this.dialogo.open(AdicionarProdutosAoCarrinhoComponent, {data: carrinho}).afterClosed().subscribe(
+      dados => {
+        if (dados) {
+          let carrinhoComTotal = new CarrinhoComtotal();
+          this.notificacaoService.mostrarMensagem('Produto adicionado ao carrinho !', 'OK', 3000);
+          carrinhoComTotal.codigo = carrinho.codigo;
+          carrinhoComTotal.pessoa = carrinho.pessoa;
+          carrinhoComTotal.valorTotal = carrinho.valorTotal;
+          carrinhoComTotal.totalProdutos++;
+        }
+      },
+      error => {
+        this.notificacaoService.mostrarMensagem('Não foi possível salvar o produto ao carrinho !', 'OK', 3000);
+        console.error(error);
+      }
+    )
   }
 
 	ngOnInit() {

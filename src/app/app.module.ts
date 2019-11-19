@@ -15,6 +15,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MyNavComponent } from './my-nav/my-nav.component';
@@ -44,7 +45,9 @@ import { DialogoAlterarProdutoComponent } from './produto-page/dialogo-alterar-p
 import { CarrinhoPageComponent } from './carrinho-page/carrinho-page.component';
 import { DialogoCarrinhoComponent } from './carrinho-page/dialogo-carrinho/dialogo-carrinho.component';
 import { DialogoAlterarCarrinhoComponent } from './carrinho-page/dialogo-alterar-carrinho/dialogo-alterar-carrinho.component';
-import { DialogoProdutosCarrinhoComponent } from './carrinho-page/dialogo-produtos-carrinho/dialogo-produtos-carrinho.component';
+import { AdicionarProdutosAoCarrinhoComponent } from './carrinho-page/dialogo-produtos-carrinho/adicionar-produtos-ao-carrinho/adicionar-produtos-ao-carrinho.component';
+import { AlterarProdutosCarrinhoComponent } from './carrinho-page/dialogo-produtos-carrinho/alterar-produtos-carrinho/alterar-produtos-carrinho.component';
+import { ListarProdutosCarrinhoComponent } from './carrinho-page/dialogo-produtos-carrinho/listar-produtos-carrinho/listar-produtos-carrinho.component';
 
 const appRoutes: Routes = [
 	{ path: 'marca-page', component: MarcaPageComponent },
@@ -67,7 +70,9 @@ const appRoutes: Routes = [
 		CarrinhoPageComponent,
 		DialogoCarrinhoComponent,
 		DialogoAlterarCarrinhoComponent,
-		DialogoProdutosCarrinhoComponent
+		AdicionarProdutosAoCarrinhoComponent,
+		AlterarProdutosCarrinhoComponent,
+		ListarProdutosCarrinhoComponent
 	],
 	imports: [
 		BrowserModule,
@@ -92,6 +97,7 @@ const appRoutes: Routes = [
     MatInputModule,
     MatSlideToggleModule,
     FormsModule,
+    MatTabsModule,
     MatBadgeModule,
 		RouterModule.forRoot(appRoutes)
 	],
@@ -109,7 +115,9 @@ const appRoutes: Routes = [
     DialogoProdutoComponent,
     DialogoAlterarProdutoComponent,
     DialogoCarrinhoComponent,
-    DialogoAlterarCarrinhoComponent
+    DialogoAlterarCarrinhoComponent,
+    ListarProdutosCarrinhoComponent,
+    AdicionarProdutosAoCarrinhoComponent
 	],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
 	bootstrap: [AppComponent]

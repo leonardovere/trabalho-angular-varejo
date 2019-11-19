@@ -1,8 +1,9 @@
-import { ProdutoCarrinho } from './ProdutoCarrinho.model';
 import { Pessoa } from './pessoa.model';
+import { Carrinho } from './carrinho.model';
 
-export class Carrinho {
+export class CarrinhoComtotal {
   codigo: number;
   pessoa: Pessoa;
   valorTotal: number;
+  totalProdutos: number;
 }
