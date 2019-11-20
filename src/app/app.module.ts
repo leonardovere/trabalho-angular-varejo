@@ -5,7 +5,6 @@ import { PessoaService } from './services/pessoa.service';
 import { DialogoMarcaComponent } from './marca-page/dialogo-marca/dialogo-marca.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -46,7 +45,6 @@ import { CarrinhoPageComponent } from './carrinho-page/carrinho-page.component';
 import { DialogoCarrinhoComponent } from './carrinho-page/dialogo-carrinho/dialogo-carrinho.component';
 import { DialogoAlterarCarrinhoComponent } from './carrinho-page/dialogo-alterar-carrinho/dialogo-alterar-carrinho.component';
 
-//import { DialogoProdutosCarrinhoComponent } from './carrinho-page/dialogo-produtos-carrinho/dialogo-produtos-carrinho.component';
 import { CompraPageComponent } from './compra-page/compra-page.component';
 import { NotaPageComponent } from './nota-page/nota-page.component';
 import { DialogoCompraComponent } from './compra-page/dialogo-compra/dialogo-compra.component';
@@ -56,7 +54,6 @@ import { NotaService } from './services/nota.service';
 
 import { AdicionarProdutosAoCarrinhoComponent } from './carrinho-page/dialogo-produtos-carrinho/adicionar-produtos-ao-carrinho/adicionar-produtos-ao-carrinho.component';
 import { ListarProdutosCarrinhoComponent } from './carrinho-page/dialogo-produtos-carrinho/listar-produtos-carrinho/listar-produtos-carrinho.component';
-import { AlterarProdutosCarrinhoComponent } from './carrinho-page/dialogo-produtos-carrinho/alterar-produtos-carrinho/alterar-produtos-carrinho.component';
 
 const appRoutes: Routes = [
 	{ path: 'marca-page', component: MarcaPageComponent },
@@ -83,7 +80,6 @@ const appRoutes: Routes = [
 		DialogoAlterarCarrinhoComponent,
 //		DialogoProdutosCarrinhoComponent,
 		ListarProdutosCarrinhoComponent,
-		AlterarProdutosCarrinhoComponent,
 		AdicionarProdutosAoCarrinhoComponent,
 		CompraPageComponent,
 		NotaPageComponent,
@@ -137,7 +133,6 @@ const appRoutes: Routes = [
 	DialogoCompraComponent,
 	ListarProdutosCarrinhoComponent,
 	AdicionarProdutosAoCarrinhoComponent,
-	AlterarProdutosCarrinhoComponent,
 	DialogoNotaComponent
 	],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],

@@ -6,17 +6,17 @@
 
       <div style="margin-left: 15px; margin-top: 15px;">
 
-          <h4 mat-line *ngIf="produtosDoCarrinho">
+          <span mat-line *ngIf="!listaVazia">
             Não existem produtos dentro do carrinho
-          </h4>
+          </span>
 
           <mat-list-item *ngFor="let produtoCarrinho of produtosDoCarrinho">
 
-              <h4 mat-line>
+              <h4 mat-line *ngIf="produtoCarrinho">
                 {{ produtoCarrinho.codigo }} - {{ produtoCarrinho.produto.nome }} - {{ produtoCarrinho.quantidade }} - {{ produtoCarrinho.valorTotal | currency: 'BRL' }}
               </h4>
 
-              <button mat-icon-button (click)="remover(carrinho)">
+              <button mat-icon-button (click)="removerProduto(produtoCarrinho)">
                   <mat-icon class="iconcolor"
                   aria-label="Remover">delete</mat-icon>
               </button>

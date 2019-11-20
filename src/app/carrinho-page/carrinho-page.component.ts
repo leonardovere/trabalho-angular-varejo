@@ -19,6 +19,7 @@ import { Component, OnInit } from '@angular/core';
 export class CarrinhoPageComponent implements OnInit {
 
   carrinhos: Carrinho[];
+  carrinhosComTotal: CarrinhoComtotal[] = [];
 
 	constructor(
 		private produtoCarrinhoService: ProdutoCarrinhoService,
@@ -40,6 +41,7 @@ export class CarrinhoPageComponent implements OnInit {
             carrinho.pessoa = this.carrinhos[i].pessoa;
             carrinho.valorTotal = this.carrinhos[i].valorTotal;
             carrinho.totalProdutos = Number(dados);
+            this.carrinhosComTotal.push(carrinho);
           },
           error => {
             console.error(error);
@@ -54,10 +56,15 @@ export class CarrinhoPageComponent implements OnInit {
 		});
 	}
 
-	remover(carrinho: Carrinho): void {
+	remover(carrinhoComTotal: CarrinhoComtotal): void {
+    let carrinho = new Carrinho();
+    carrinho.codigo = carrinhoComTotal.codigo;
+    carrinho.pessoa = carrinhoComTotal.pessoa;
+    carrinho.valorTotal = carrinhoComTotal.valorTotal;
 		this.carrinhoService.deletar(carrinho.codigo).subscribe(
 			res => {
-				this.listarCarrinhos();
+        this.limparLista();
+        this.listarCarrinhos();
 				this.notificacaoService.mostrarMensagem(
 					"Carrinho foi deletado com sucesso!",
 					"OK",
@@ -76,7 +83,8 @@ export class CarrinhoPageComponent implements OnInit {
 		this.dialogo.open(DialogoCarrinhoComponent, {data: new Carrinho}).afterClosed()
 		.subscribe(result => {
 			if (result) {
-				this.carrinhos.push(result);
+        //this.carrinhos.push(result);
+        this.carrinhosComTotal.push(result);
 				this.notificacaoService.mostrarMensagem(
 					"Carrinho salvo com sucesso!",
 					"OK", 3000
@@ -94,11 +102,16 @@ export class CarrinhoPageComponent implements OnInit {
 
   }
 
-  alterarCarrinho(carrinho: Carrinho) {
+  alterarCarrinho(carrinhoComTotal: CarrinhoComtotal) {
+    let carrinho = new Carrinho();
+    carrinho.codigo = carrinhoComTotal.codigo;
+    carrinho.pessoa = carrinhoComTotal.pessoa;
+    carrinho.valorTotal = carrinhoComTotal.valorTotal;
     this.dialogo.open(DialogoAlterarCarrinhoComponent, {data: carrinho}).afterClosed()
     .subscribe(
       dados => {
         if (dados) {
+          this.limparLista();
           this.listarCarrinhos();
           this.notificacaoService.mostrarMensagem('Carrinho alterado com sucesso!', 'OK', 3000);
         }
@@ -110,10 +123,20 @@ export class CarrinhoPageComponent implements OnInit {
     );
   }
 
-  listarProdutosDoCarrinho(carrinho: Carrinho) {
+  listarProdutosDoCarrinho(carrinhoComTotal: CarrinhoComtotal) {
+    let carrinho = new Carrinho();
+    carrinho.codigo = carrinhoComTotal.codigo;
+    carrinho.pessoa = carrinhoComTotal.pessoa;
+    carrinho.valorTotal = carrinhoComTotal.valorTotal;
     this.dialogo.open(ListarProdutosCarrinhoComponent, {data: carrinho}).afterClosed()
     .subscribe(
-      success => {},
+      result => {
+        if (result) {
+          carrinhoComTotal.totalProdutos -= result;
+          this.limparLista();
+          this.listarCarrinhos();
+        }
+      },
       error => {
         this.notificacaoService.mostrarMensagem('Erro ao abrir tela de produtos do carrinho', 'OK', 3000);
         console.error(error);
@@ -121,11 +144,17 @@ export class CarrinhoPageComponent implements OnInit {
     );
   }
 
-  adicionarProdutosAoCarrinho(carrinho: Carrinho) {
+  adicionarProdutosAoCarrinho(carrinhoComTotal: CarrinhoComtotal) {
+    if (carrinhoComTotal.totalProdutos == null) {
+      carrinhoComTotal.totalProdutos = 0;
+    }
+    let carrinho = new Carrinho();
+    carrinho.codigo = carrinhoComTotal.codigo;
+    carrinho.pessoa = carrinhoComTotal.pessoa;
+    carrinho.valorTotal = carrinhoComTotal.valorTotal;
     this.dialogo.open(AdicionarProdutosAoCarrinhoComponent, {data: carrinho}).afterClosed().subscribe(
       dados => {
         if (dados) {
-          let carrinhoComTotal = new CarrinhoComtotal();
           this.notificacaoService.mostrarMensagem('Produto adicionado ao carrinho !', 'OK', 3000);
           carrinhoComTotal.codigo = carrinho.codigo;
           carrinhoComTotal.pessoa = carrinho.pessoa;
@@ -138,6 +167,12 @@ export class CarrinhoPageComponent implements OnInit {
         console.error(error);
       }
     )
+  }
+
+  limparLista() {
+    for (let i = this.carrinhosComTotal.length; i > 0; i--) {
+      this.carrinhosComTotal.pop();
+    }
   }
 
 	ngOnInit() {

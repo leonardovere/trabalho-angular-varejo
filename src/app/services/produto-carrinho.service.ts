@@ -22,8 +22,8 @@ export class ProdutoCarrinhoService {
     return this.http.get<ProdutoCarrinho[]>(`${this.apiUrl}produtosCarrinho/buscarProdutosPorCarrinho/${carrinho.codigo}`);
   }
 
-  removerProduto(produtoCarrinho: ProdutoCarrinho, codigoProduto: number) {
-
+  remover(produtoCarrinho: ProdutoCarrinho) {
+    return this.http.delete<ProdutoCarrinho>((`${this.apiUrl}produtosCarrinho/${produtoCarrinho.codigo}`));
   }
 
 }
