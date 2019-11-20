@@ -55,9 +55,8 @@ import { CompraService } from './services/compra.service';
 import { NotaService } from './services/nota.service';
 
 import { AdicionarProdutosAoCarrinhoComponent } from './carrinho-page/dialogo-produtos-carrinho/adicionar-produtos-ao-carrinho/adicionar-produtos-ao-carrinho.component';
-import { AlterarProdutosCarrinhoComponent } from './carrinho-page/dialogo-produtos-carrinho/alterar-produtos-carrinho/alterar-produtos-carrinho.component';
 import { ListarProdutosCarrinhoComponent } from './carrinho-page/dialogo-produtos-carrinho/listar-produtos-carrinho/listar-produtos-carrinho.component';
-
+import { AlterarProdutosCarrinhoComponent } from './carrinho-page/dialogo-produtos-carrinho/alterar-produtos-carrinho/alterar-produtos-carrinho.component';
 
 const appRoutes: Routes = [
 	{ path: 'marca-page', component: MarcaPageComponent },
@@ -83,6 +82,9 @@ const appRoutes: Routes = [
 		DialogoCarrinhoComponent,
 		DialogoAlterarCarrinhoComponent,
 //		DialogoProdutosCarrinhoComponent,
+		ListarProdutosCarrinhoComponent,
+		AlterarProdutosCarrinhoComponent,
+		AdicionarProdutosAoCarrinhoComponent,
 		CompraPageComponent,
 		NotaPageComponent,
 		DialogoCompraComponent,
@@ -133,6 +135,9 @@ const appRoutes: Routes = [
     DialogoCarrinhoComponent,
 	DialogoAlterarCarrinhoComponent,
 	DialogoCompraComponent,
+	ListarProdutosCarrinhoComponent,
+	AdicionarProdutosAoCarrinhoComponent,
+	AlterarProdutosCarrinhoComponent,
 	DialogoNotaComponent
 	],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
