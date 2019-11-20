@@ -49,6 +49,7 @@ export class AdicionarProdutosAoCarrinhoComponent implements OnInit {
 
   apagar() {
     this.produtoCarrinho = new ProdutoCarrinho();
+    this.produtoCarrinho.carrinho = this.carrinhoSelecionado;
   }
 
   ngOnInit() {
