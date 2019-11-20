@@ -1,0 +1,29 @@
+<div style="margin-left: 15px; margin-top: 15px;">
+
+    <mat-list id="pagamentolista" style="max-height: 150vh; overflow-y: auto;">
+
+        <h1 mat-subheader>Pagamentos</h1>
+
+        <div style="margin-left: 15px; margin-top: 15px;">
+
+            <button id="novoPagamento" mat-fab class="bottomButtom" 
+            color="accent" (click)="novoPagamento()">
+                <mat-icon>add</mat-icon>
+            </button>
+
+            <mat-list-item *ngFor="let pagamento of pagamentos">
+
+                <h4 mat-line>{{pagamento.tipo}} </h4>
+                <button mat-icon-button (click)="remover(pagamento)">
+                    <mat-icon class="iconcolor" 
+                    aria-label="Remover">delete</mat-icon>
+                </button>
+
+
+            </mat-list-item>
+
+        </div>
+
+    </mat-list>
+
+</div>

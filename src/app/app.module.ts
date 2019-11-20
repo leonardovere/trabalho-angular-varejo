@@ -45,12 +45,20 @@ import { CarrinhoPageComponent } from './carrinho-page/carrinho-page.component';
 import { DialogoCarrinhoComponent } from './carrinho-page/dialogo-carrinho/dialogo-carrinho.component';
 import { DialogoAlterarCarrinhoComponent } from './carrinho-page/dialogo-alterar-carrinho/dialogo-alterar-carrinho.component';
 import { DialogoProdutosCarrinhoComponent } from './carrinho-page/dialogo-produtos-carrinho/dialogo-produtos-carrinho.component';
+import { PagamentoPageComponent } from './pagamento-page/pagamento-page.component';
+import { PagamentoCompraPageComponent } from './pagamento-compra-page/pagamento-compra-page.component';
+import { DialogoPagamentoComponent } from './pagamento-page/dialogo-pagamento/dialogo-pagamento.component';
+import { DialogoPagamentoCompraPageComponent } from './pagamento-compra-page/dialogo-pagamento-compra-page/dialogo-pagamento-compra-page.component';
+import { PagamentoService } from './services/pagamento.service';
+import { PagamentoCompraService } from './services/pagamento-compra.service';
 
 const appRoutes: Routes = [
 	{ path: 'marca-page', component: MarcaPageComponent },
   { path: 'pessoa-page', component: PessoaPageComponent },
   { path: 'produto-page', component: ProdutoPageComponent},
-  { path: 'carrinho-page', component: CarrinhoPageComponent}
+  { path: 'carrinho-page', component: CarrinhoPageComponent},
+  { path: 'pagamento-page', component: PagamentoPageComponent},
+  { path: 'pagamento-compra-page', component: PagamentoCompraPageComponent},
 ];
 
 @NgModule({
@@ -67,7 +75,10 @@ const appRoutes: Routes = [
 		CarrinhoPageComponent,
 		DialogoCarrinhoComponent,
 		DialogoAlterarCarrinhoComponent,
-		DialogoProdutosCarrinhoComponent
+		DialogoProdutosCarrinhoComponent,
+		PagamentoPageComponent,
+		PagamentoCompraPageComponent,
+		DialogoPagamentoComponent
 	],
 	imports: [
 		BrowserModule,
@@ -98,10 +109,12 @@ const appRoutes: Routes = [
 	providers: [
 		NotificacaoService,
 		MarcaService,
-    PessoaService,
-    ProdutoService,
-    CarrinhoService,
-    ProdutoCarrinhoService
+    	PessoaService,
+   		ProdutoService,
+    	CarrinhoService,
+		ProdutoCarrinhoService,
+		PagamentoService,
+		PagamentoCompraService
 	],
 	entryComponents: [
 		DialogoMarcaComponent,
@@ -109,7 +122,10 @@ const appRoutes: Routes = [
     DialogoProdutoComponent,
     DialogoAlterarProdutoComponent,
     DialogoCarrinhoComponent,
-    DialogoAlterarCarrinhoComponent
+	DialogoAlterarCarrinhoComponent,
+	DialogoPagamentoComponent
+	
+	
 	],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
 	bootstrap: [AppComponent]

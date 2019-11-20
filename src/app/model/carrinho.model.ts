@@ -1,4 +1,3 @@
-import { ProdutoCarrinho } from './ProdutoCarrinho.model';
 import { Pessoa } from './pessoa.model';
 
 export class Carrinho {
