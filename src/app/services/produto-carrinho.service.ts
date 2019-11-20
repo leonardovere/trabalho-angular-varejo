@@ -1,3 +1,4 @@
+import { Carrinho } from './../model/carrinho.model';
 import { ProdutoCarrinho } from './../model/ProdutoCarrinho.model';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
@@ -14,7 +15,11 @@ export class ProdutoCarrinhoService {
   constructor(private http: HttpClient) { }
 
   salvar(produtoCarrinho: ProdutoCarrinho): Observable<ProdutoCarrinho> {
-    return this.http.post<ProdutoCarrinho>((`${this.apiUrl}produtoCarrinho`), produtoCarrinho);
+    return this.http.post<ProdutoCarrinho>((`${this.apiUrl}produtosCarrinho`), produtoCarrinho);
+  }
+
+  buscarProdutosDoCarrinho(carrinho: Carrinho) {
+    return this.http.get<ProdutoCarrinho[]>(`${this.apiUrl}produtosCarrinho/buscarProdutosPorCarrinho/${carrinho.codigo}`);
   }
 
   removerProduto(produtoCarrinho: ProdutoCarrinho, codigoProduto: number) {
