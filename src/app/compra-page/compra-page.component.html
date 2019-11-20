@@ -1,0 +1,23 @@
+<div style="margin-left: 15px; margin-top: 15px;">
+
+    <mat-list id="marcalista" style="max-height: 150vh; overflow-y: auto;">
+    
+        <h1 mat-subheader>Compras</h1>
+    
+        <div style="margin-left: 15px; margin-top: 15px;">
+    
+            <button id="novaCompra" mat-fab class="bottomButtom"
+            color="accent" (click)="novaCompra()">
+                <mat-icon>add</mat-icon>
+            </button>    
+            <mat-list-item *ngFor="let compra of compras">
+    
+                <h4 mat-line>{{compra.codigo}}</h4>
+                <button mat-icon-button (click)="remover(compra)">
+                    <mat-icon class="iconcolor"
+                    aria-label="Remover">delete</mat-icon>
+                </button>
+            </mat-list-item>
+        </div>
+    </mat-list>
+</div>

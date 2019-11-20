@@ -45,14 +45,26 @@ import { DialogoAlterarProdutoComponent } from './produto-page/dialogo-alterar-p
 import { CarrinhoPageComponent } from './carrinho-page/carrinho-page.component';
 import { DialogoCarrinhoComponent } from './carrinho-page/dialogo-carrinho/dialogo-carrinho.component';
 import { DialogoAlterarCarrinhoComponent } from './carrinho-page/dialogo-alterar-carrinho/dialogo-alterar-carrinho.component';
+
+//import { DialogoProdutosCarrinhoComponent } from './carrinho-page/dialogo-produtos-carrinho/dialogo-produtos-carrinho.component';
+import { CompraPageComponent } from './compra-page/compra-page.component';
+import { NotaPageComponent } from './nota-page/nota-page.component';
+import { DialogoCompraComponent } from './compra-page/dialogo-compra/dialogo-compra.component';
+import { DialogoNotaComponent } from './nota-page/dialogo-nota/dialogo-nota.component';
+import { CompraService } from './services/compra.service';
+import { NotaService } from './services/nota.service';
+
 import { AdicionarProdutosAoCarrinhoComponent } from './carrinho-page/dialogo-produtos-carrinho/adicionar-produtos-ao-carrinho/adicionar-produtos-ao-carrinho.component';
 import { AlterarProdutosCarrinhoComponent } from './carrinho-page/dialogo-produtos-carrinho/alterar-produtos-carrinho/alterar-produtos-carrinho.component';
 import { ListarProdutosCarrinhoComponent } from './carrinho-page/dialogo-produtos-carrinho/listar-produtos-carrinho/listar-produtos-carrinho.component';
+
 
 const appRoutes: Routes = [
 	{ path: 'marca-page', component: MarcaPageComponent },
   { path: 'pessoa-page', component: PessoaPageComponent },
   { path: 'produto-page', component: ProdutoPageComponent},
+  { path: 'nota-page', component: NotaPageComponent },
+  { path: 'compra-page', component: CompraPageComponent },
   { path: 'carrinho-page', component: CarrinhoPageComponent}
 ];
 
@@ -70,9 +82,11 @@ const appRoutes: Routes = [
 		CarrinhoPageComponent,
 		DialogoCarrinhoComponent,
 		DialogoAlterarCarrinhoComponent,
-		AdicionarProdutosAoCarrinhoComponent,
-		AlterarProdutosCarrinhoComponent,
-		ListarProdutosCarrinhoComponent
+//		DialogoProdutosCarrinhoComponent,
+		CompraPageComponent,
+		NotaPageComponent,
+		DialogoCompraComponent,
+		DialogoNotaComponent
 	],
 	imports: [
 		BrowserModule,
@@ -107,7 +121,9 @@ const appRoutes: Routes = [
     PessoaService,
     ProdutoService,
     CarrinhoService,
-    ProdutoCarrinhoService
+	ProdutoCarrinhoService,
+	CompraService,
+	NotaService
 	],
 	entryComponents: [
 		DialogoMarcaComponent,
@@ -115,9 +131,9 @@ const appRoutes: Routes = [
     DialogoProdutoComponent,
     DialogoAlterarProdutoComponent,
     DialogoCarrinhoComponent,
-    DialogoAlterarCarrinhoComponent,
-    ListarProdutosCarrinhoComponent,
-    AdicionarProdutosAoCarrinhoComponent
+	DialogoAlterarCarrinhoComponent,
+	DialogoCompraComponent,
+	DialogoNotaComponent
 	],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
 	bootstrap: [AppComponent]

@@ -1,0 +1,29 @@
+<div style="margin-left: 15px; margin-top: 15px;">
+
+    <mat-list id="marcalista" style="max-height: 150vh; overflow-y: auto;">
+
+        <h1 mat-subheader>Notas</h1>
+
+        <div style="margin-left: 15px; margin-top: 15px;">
+
+            <button id="novaNota" mat-fab class="bottomButtom"
+            color="accent" (click)="novaNota()">
+                <mat-icon>add</mat-icon>
+            </button>
+
+            <mat-list-item *ngFor="let nota of notas">
+
+                <h4 mat-line>{{nota.codigo}} - {{ nota.nome }} - {{ pessoa.cpf }} }</h4>
+                <button mat-icon-button (click)="remover(pessoa)">
+                    <mat-icon class="iconcolor"
+                    aria-label="Remover">delete</mat-icon>
+                </button>
+
+
+            </mat-list-item>
+
+        </div>
+
+    </mat-list>
+
+</div>
