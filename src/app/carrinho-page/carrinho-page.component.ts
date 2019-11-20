@@ -19,6 +19,7 @@ import { Component, OnInit } from '@angular/core';
 export class CarrinhoPageComponent implements OnInit {
 
   carrinhos: Carrinho[];
+  carrinhosComTotal: CarrinhoComtotal[] = [];
 
 	constructor(
 		private produtoCarrinhoService: ProdutoCarrinhoService,
@@ -40,6 +41,8 @@ export class CarrinhoPageComponent implements OnInit {
             carrinho.pessoa = this.carrinhos[i].pessoa;
             carrinho.valorTotal = this.carrinhos[i].valorTotal;
             carrinho.totalProdutos = Number(dados);
+            this.carrinhosComTotal.push(carrinho)
+            console.log(this.carrinhosComTotal);
           },
           error => {
             console.error(error);

@@ -11,7 +11,7 @@
               <mat-icon>add</mat-icon>
           </button>
 
-          <mat-list-item *ngFor="let carrinho of carrinhos">
+          <mat-list-item *ngFor="let carrinho of carrinhosComTotal">
 
               <h4 mat-line>
                 {{ carrinho.codigo }} - {{ carrinho.pessoa.nome }} - {{ (carrinho.valorTotal == null ? 0 : carrinho.valorTotal) | currency: 'BRL' }}

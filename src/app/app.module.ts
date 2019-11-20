@@ -46,7 +46,6 @@ import { CarrinhoPageComponent } from './carrinho-page/carrinho-page.component';
 import { DialogoCarrinhoComponent } from './carrinho-page/dialogo-carrinho/dialogo-carrinho.component';
 import { DialogoAlterarCarrinhoComponent } from './carrinho-page/dialogo-alterar-carrinho/dialogo-alterar-carrinho.component';
 
-//import { DialogoProdutosCarrinhoComponent } from './carrinho-page/dialogo-produtos-carrinho/dialogo-produtos-carrinho.component';
 import { CompraPageComponent } from './compra-page/compra-page.component';
 import { NotaPageComponent } from './nota-page/nota-page.component';
 import { DialogoCompraComponent } from './compra-page/dialogo-compra/dialogo-compra.component';
@@ -82,7 +81,9 @@ const appRoutes: Routes = [
 		CarrinhoPageComponent,
 		DialogoCarrinhoComponent,
 		DialogoAlterarCarrinhoComponent,
-//		DialogoProdutosCarrinhoComponent,
+    ListarProdutosCarrinhoComponent,
+    AdicionarProdutosAoCarrinhoComponent,
+    AlterarProdutosCarrinhoComponent,
 		CompraPageComponent,
 		NotaPageComponent,
 		DialogoCompraComponent,
@@ -131,9 +132,12 @@ const appRoutes: Routes = [
     DialogoProdutoComponent,
     DialogoAlterarProdutoComponent,
     DialogoCarrinhoComponent,
-	DialogoAlterarCarrinhoComponent,
-	DialogoCompraComponent,
-	DialogoNotaComponent
+	  DialogoAlterarCarrinhoComponent,
+	  DialogoCompraComponent,
+    DialogoNotaComponent,
+    ListarProdutosCarrinhoComponent,
+    AdicionarProdutosAoCarrinhoComponent,
+    AlterarProdutosCarrinhoComponent
 	],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
 	bootstrap: [AppComponent]
