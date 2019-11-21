@@ -24,9 +24,6 @@ public class Carrinho {
 	@JoinColumn(name="cod_pessoa")
 	private Pessoa pessoa;
 	
-	@Column(name="sessao")
-	private Long sessao;
-	
 	@Column(name="valor_total")
 	private BigDecimal valorTotal;
 
@@ -44,14 +41,6 @@ public class Carrinho {
 
 	public void setPessoa(Pessoa pessoa) {
 		this.pessoa = pessoa;
-	}
-
-	public Long getSessao() {
-		return sessao;
-	}
-
-	public void setSessao(Long sessao) {
-		this.sessao = sessao;
 	}
 
 	public BigDecimal getValorTotal() {
