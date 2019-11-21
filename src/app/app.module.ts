@@ -44,24 +44,26 @@ import { DialogoAlterarProdutoComponent } from './produto-page/dialogo-alterar-p
 import { CarrinhoPageComponent } from './carrinho-page/carrinho-page.component';
 import { DialogoCarrinhoComponent } from './carrinho-page/dialogo-carrinho/dialogo-carrinho.component';
 import { DialogoAlterarCarrinhoComponent } from './carrinho-page/dialogo-alterar-carrinho/dialogo-alterar-carrinho.component';
-
+import { PagamentoPageComponent } from './pagamento-page/pagamento-page.component';
+import { PagamentoCompraPageComponent } from './pagamento-compra-page/pagamento-compra-page.component';
+import { DialogoPagamentoComponent } from './pagamento-page/dialogo-pagamento/dialogo-pagamento.component';
+import { DialogoPagamentoCompraPageComponent } from './pagamento-compra-page/dialogo-pagamento-compra-page/dialogo-pagamento-compra-page.component';
+import { PagamentoService } from './services/pagamento.service';
+import { PagamentoCompraService } from './services/pagamento-compra.service';
+import { ListarProdutosCarrinhoComponent } from './carrinho-page/dialogo-produtos-carrinho/listar-produtos-carrinho/listar-produtos-carrinho.component';
+import { DialogoCompraComponent } from './compra-page/dialogo-compra/dialogo-compra.component';
+import { AdicionarProdutosAoCarrinhoComponent } from './carrinho-page/dialogo-produtos-carrinho/adicionar-produtos-ao-carrinho/adicionar-produtos-ao-carrinho.component';
+import { DialogoNotaComponent } from './nota-page/dialogo-nota/dialogo-nota.component';
 import { CompraPageComponent } from './compra-page/compra-page.component';
 import { NotaPageComponent } from './nota-page/nota-page.component';
-import { DialogoCompraComponent } from './compra-page/dialogo-compra/dialogo-compra.component';
-import { DialogoNotaComponent } from './nota-page/dialogo-nota/dialogo-nota.component';
-import { CompraService } from './services/compra.service';
-import { NotaService } from './services/nota.service';
-
-import { AdicionarProdutosAoCarrinhoComponent } from './carrinho-page/dialogo-produtos-carrinho/adicionar-produtos-ao-carrinho/adicionar-produtos-ao-carrinho.component';
-import { ListarProdutosCarrinhoComponent } from './carrinho-page/dialogo-produtos-carrinho/listar-produtos-carrinho/listar-produtos-carrinho.component';
 
 const appRoutes: Routes = [
 	{ path: 'marca-page', component: MarcaPageComponent },
   { path: 'pessoa-page', component: PessoaPageComponent },
   { path: 'produto-page', component: ProdutoPageComponent},
-  { path: 'nota-page', component: NotaPageComponent },
-  { path: 'compra-page', component: CompraPageComponent },
-  { path: 'carrinho-page', component: CarrinhoPageComponent}
+  { path: 'carrinho-page', component: CarrinhoPageComponent},
+  { path: 'pagamento-page', component: PagamentoPageComponent},
+  { path: 'pagamento-compra-page', component: PagamentoCompraPageComponent},
 ];
 
 @NgModule({
@@ -116,12 +118,12 @@ const appRoutes: Routes = [
 	providers: [
 		NotificacaoService,
 		MarcaService,
-    PessoaService,
-    ProdutoService,
-    CarrinhoService,
-	ProdutoCarrinhoService,
-	CompraService,
-	NotaService
+    	PessoaService,
+   		ProdutoService,
+    	CarrinhoService,
+		ProdutoCarrinhoService,
+		PagamentoService,
+		PagamentoCompraService
 	],
 	entryComponents: [
 		DialogoMarcaComponent,

@@ -1,5 +1,7 @@
 package com.fadep.springrest.springrest.service;
 
+import java.math.BigDecimal;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -44,6 +46,21 @@ public class CarrinhoService {
 				return ResponseEntity.badRequest().build();
 			}
 			
+		}
+	}
+	
+	public ResponseEntity<Carrinho> alterarValorTotal(BigDecimal valorTotal, Long codigo) {
+		Carrinho carrinhoSalvo = buscarPorCodigo(codigo);
+		if (carrinhoSalvo == null) {
+			return ResponseEntity.notFound().build();
+		} else {
+			Integer linhasAlteradas = carrinhoRepository.alterarValorTotalDoCarrinho(valorTotal, codigo);
+			if (linhasAlteradas > 0) {
+				carrinhoSalvo = buscarPorCodigo(codigo);
+				return ResponseEntity.ok(carrinhoSalvo);
+			} else {
+				return ResponseEntity.badRequest().build();
+			}
 		}
 	}
 }

@@ -1,0 +1,40 @@
+<div style="margin-left: 15px; margin-top: 15px;">
+
+    <mat-list id="pagamentoCompra" style="max-height: 150vh; overflow-y: auto;">
+  
+        <h1 mat-subheader>Pagamento Compra</h1>
+  
+        <div style="margin-left: 15px; margin-top: 15px;">
+  
+            <button id="novoPagamentoCompra" mat-fab class="bottomButtom"
+            color="accent" (click)="novoPagamentoCompra()">
+                <mat-icon>add</mat-icon>
+            </button>
+  
+            <mat-list-item *ngFor="let pagamentoCompra of pagamentoCompra">
+  
+                <h4 mat-line>
+                  {{ pagamentoCompra.codigo }} - {{ pagamentoCompra.pagamento }} - 
+                  {{ pagamentoCompra.compra }} - {{ pagamentoCompra.numCartao }} -
+                  {{ pagamentoCompra.numBoleto }} - {{ pagamentoCompra.agencia }} -
+                  {{ pagamentoCompra.vezes }} - {{ pagamentoCompra.dtEmissao }} -
+                  {{ pagamentoCompra.dtVencimento }} 
+                </h4>
+  
+                <button mat-icon-button (click)="pagamentoCompra(pagamentoCompra)">
+                    
+                </button>
+  
+                <button mat-icon-button (click)="remover(PagamentoCompra)">
+                    <mat-icon class="iconcolor"
+                    aria-label="Remover">delete</mat-icon>
+                </button>
+  
+            </mat-list-item>
+  
+        </div>
+  
+    </mat-list>
+  
+  </div>
+  
