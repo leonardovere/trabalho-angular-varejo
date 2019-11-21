@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Cadastro de Pagamento</h1>
+<div mat-dialog-content>
+
+        <mat-form-field class="full-width">
+            <input name="tipo" matInput placeholder="Tipo do pagamento" [(ngModel)]="pagamento.tipo">
+        </mat-form-field>
+
+        <br>
+</div>
+
+<div mat-dialog-actions fxLayout="row" fxLayoutAlign="end center">
+    <button mat-button (click)="cancelar()" color="accent">Cancelar</button>
+    <button mat-button (click)="salvar()" color="primary">Salvar</button>
+</div>

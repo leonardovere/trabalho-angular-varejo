@@ -1,0 +1,30 @@
+<div [ngStyle]="{'height': '300px', 'width':'600px' ,'overflow-y': 'auto'}">
+
+  <mat-list id="carrinholista" style="max-height: 150vh; overflow-y: auto;">
+
+      <h1 mat-subheader>Itens do carrinho</h1>
+
+      <div style="margin-left: 15px; margin-top: 15px;">
+
+          <span mat-line *ngIf="!listaVazia">
+            Não existem produtos dentro do carrinho
+          </span>
+
+          <mat-list-item *ngFor="let produtoCarrinho of produtosDoCarrinho">
+
+              <h4 mat-line *ngIf="produtoCarrinho">
+                {{ produtoCarrinho.codigo }} - {{ produtoCarrinho.produto.nome }} - {{ produtoCarrinho.quantidade }} - {{ produtoCarrinho.valorTotal | currency: 'BRL' }}
+              </h4>
+
+              <button mat-icon-button (click)="removerProduto(produtoCarrinho)">
+                  <mat-icon class="iconcolor"
+                  aria-label="Remover">delete</mat-icon>
+              </button>
+
+          </mat-list-item>
+
+      </div>
+
+  </mat-list>
+
+</div>

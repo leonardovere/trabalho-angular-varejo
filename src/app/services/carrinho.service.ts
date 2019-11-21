@@ -31,4 +31,8 @@ export class CarrinhoService {
     alterarCarrinho(carrinho: Carrinho) {
       return this.httpClient.put<Carrinho>((`${this.apiUrl}carrinhos/${carrinho.codigo}`), carrinho);
     }
+
+    alterarValorTotal(carrinho: Carrinho) {
+      return this.httpClient.put<Carrinho>((`${this.apiUrl}carrinhos/alterarValorTotal/${carrinho.codigo}`), carrinho);
+    }
 }
