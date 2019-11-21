@@ -13,7 +13,7 @@ export class CompraService {
 
     salvar(compra: Compra): Observable<Compra> {
         return this.httpClient.post<Compra>(
-            `${this.apiUrl}compras`, compra);
+            `${this.apiUrl}compras`, compra);   
     }
 
     deletar(codigo: number): Observable<Compra> {

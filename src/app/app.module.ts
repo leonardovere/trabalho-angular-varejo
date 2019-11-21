@@ -56,6 +56,8 @@ import { AdicionarProdutosAoCarrinhoComponent } from './carrinho-page/dialogo-pr
 import { DialogoNotaComponent } from './nota-page/dialogo-nota/dialogo-nota.component';
 import { CompraPageComponent } from './compra-page/compra-page.component';
 import { NotaPageComponent } from './nota-page/nota-page.component';
+import { CompraService } from './services/compra.service';
+import { NotaService } from './services/nota.service';
 
 const appRoutes: Routes = [
 	{ path: 'marca-page', component: MarcaPageComponent },
@@ -64,6 +66,8 @@ const appRoutes: Routes = [
   { path: 'carrinho-page', component: CarrinhoPageComponent},
   { path: 'pagamento-page', component: PagamentoPageComponent},
   { path: 'pagamento-compra-page', component: PagamentoCompraPageComponent},
+  { path: 'compra-page', component: CompraPageComponent},
+  { path: 'nota-page', component: NotaPageComponent}
 ];
 
 @NgModule({
@@ -86,7 +90,10 @@ const appRoutes: Routes = [
 		CompraPageComponent,
 		NotaPageComponent,
 		DialogoCompraComponent,
-		DialogoNotaComponent
+		DialogoNotaComponent,
+		PagamentoPageComponent,
+		PagamentoCompraPageComponent,
+		DialogoPagamentoComponent
 	],
 	imports: [
 		BrowserModule,
@@ -123,7 +130,9 @@ const appRoutes: Routes = [
     	CarrinhoService,
 		ProdutoCarrinhoService,
 		PagamentoService,
-		PagamentoCompraService
+		PagamentoCompraService,
+		CompraService,
+		NotaService
 	],
 	entryComponents: [
 		DialogoMarcaComponent,
@@ -135,7 +144,8 @@ const appRoutes: Routes = [
 	DialogoCompraComponent,
 	ListarProdutosCarrinhoComponent,
 	AdicionarProdutosAoCarrinhoComponent,
-	DialogoNotaComponent
+	DialogoNotaComponent,
+	DialogoPagamentoComponent
 	],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
 	bootstrap: [AppComponent]
