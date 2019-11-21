@@ -15,6 +15,7 @@ public class Pagamento {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="codigo")
 	private Long codigo;
+	
 	@Column(name="tipo")
 	private String tipo;
 	
