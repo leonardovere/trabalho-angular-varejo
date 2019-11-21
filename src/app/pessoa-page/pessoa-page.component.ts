@@ -60,7 +60,7 @@ export class PessoaPageComponent implements OnInit {
 			if (result) {
 				this.pessoas.push(result);
 				this.notificacaoService.mostrarMensagem(
-					"Marca salva com sucesso!",
+					"Pessoa salva com sucesso!",
 					"OK", 3000
 				);
 
@@ -68,7 +68,7 @@ export class PessoaPageComponent implements OnInit {
 
 		}, () => {
 			this.notificacaoService.mostrarMensagem(
-				"Não foi possivel salvar a marca!",
+				"Não foi possivel salvar a Pessoa!",
 				"OK", 3000
 			);
 		});

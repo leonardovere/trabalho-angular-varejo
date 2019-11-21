@@ -34,7 +34,6 @@ export class AdicionarProdutosAoCarrinhoComponent implements OnInit {
   }
 
   adicionarProduto() {
-    console.log(`Produto selecionado: ${this.produtoCarrinho.produto.nome}`);
     this.produtoCarrinho.valorTotal = Number(this.produtoCarrinho.produto.preco * this.produtoCarrinho.quantidade);
     this.produtoCarrinho.carrinho.valorTotal += Number(this.produtoCarrinho.valorTotal);
     this.carrinhoService.alterarValorTotal(this.produtoCarrinho.carrinho).subscribe(

@@ -47,6 +47,7 @@ export class ListarProdutosCarrinhoComponent implements OnInit {
   }
 
   removerProduto(produtoCarrinho: ProdutoCarrinho) {
+    let quantidadeRemovida = produtoCarrinho.quantidade;
     produtoCarrinho.carrinho.valorTotal -= produtoCarrinho.valorTotal;
     this.carrinhoService.alterarValorTotal(produtoCarrinho.carrinho).subscribe(
       success => {
@@ -55,7 +56,7 @@ export class ListarProdutosCarrinhoComponent implements OnInit {
             this.notificacaoService.mostrarMensagem('Produto removido do carrinho!', 'OK', 3000);
             this.limparLista();
             this.listarProdutos();
-            this.dialogoReferencia.close(1);
+            this.dialogoReferencia.close(quantidadeRemovida);
           },
           error => {
             this.notificacaoService.mostrarMensagem('Não foi possível retirar o produto do carrinho', 'OK', 3000);

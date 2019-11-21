@@ -7,6 +7,6 @@ import com.fadep.springrest.springrest.model.Produto;
 
 public interface ProdutoRepository extends JpaRepository<Produto, Long> {
 	
-	@Query("SELECT COUNT(pc.produto.codigo) FROM ProdutoCarrinho pc WHERE pc.carrinho.codigo = ?1")
+	@Query("SELECT SUM(pc.quantidade) FROM ProdutoCarrinho pc WHERE pc.carrinho.codigo = ?1")
 	public Integer quantiadeDeProdutosNoCarrinho(Long codigo);
 }

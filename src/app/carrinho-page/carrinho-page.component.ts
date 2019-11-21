@@ -159,7 +159,7 @@ export class CarrinhoPageComponent implements OnInit {
           carrinhoComTotal.codigo = carrinho.codigo;
           carrinhoComTotal.pessoa = carrinho.pessoa;
           carrinhoComTotal.valorTotal = carrinho.valorTotal;
-          carrinhoComTotal.totalProdutos++;
+          carrinhoComTotal.totalProdutos += dados.quantidade;
         }
       },
       error => {
