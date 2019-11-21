@@ -31,7 +31,7 @@ export class ProdutoPageComponent implements OnInit {
 			  this.produtos = res;
 		}, err => {
 			this.notificacaoService.mostrarMensagem(
-				"Não foi possível buscar as marcas!",
+				"Não foi possível buscar os produtos!",
 				"OK",
 				3000);
 		});
@@ -42,13 +42,13 @@ export class ProdutoPageComponent implements OnInit {
 			res => {
 				this.listarProdutos();
 				this.notificacaoService.mostrarMensagem(
-					"Marca foi deletada com sucesso!",
+					"Produto foi deletado com sucesso!",
 					"OK",
 					3000
 				);
 			}, err => {
 				this.notificacaoService.mostrarMensagem(
-					"Não foi possível deletar a marca!",
+					"Não foi possível deletar o produto!",
 					"OK",
 					3000
 				);
@@ -61,7 +61,7 @@ export class ProdutoPageComponent implements OnInit {
 			if (result) {
 				this.produtos.push(result);
 				this.notificacaoService.mostrarMensagem(
-					"Marca salva com sucesso!",
+					"Produto salvo com sucesso!",
 					"OK", 3000
 				);
 

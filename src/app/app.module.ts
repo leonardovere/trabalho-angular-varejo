@@ -15,6 +15,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MyNavComponent } from './my-nav/my-nav.component';
@@ -44,6 +45,7 @@ import { DialogoAlterarProdutoComponent } from './produto-page/dialogo-alterar-p
 import { CarrinhoPageComponent } from './carrinho-page/carrinho-page.component';
 import { DialogoCarrinhoComponent } from './carrinho-page/dialogo-carrinho/dialogo-carrinho.component';
 import { DialogoAlterarCarrinhoComponent } from './carrinho-page/dialogo-alterar-carrinho/dialogo-alterar-carrinho.component';
+<<<<<<< HEAD
 import { DialogoProdutosCarrinhoComponent } from './carrinho-page/dialogo-produtos-carrinho/dialogo-produtos-carrinho.component';
 import { PagamentoPageComponent } from './pagamento-page/pagamento-page.component';
 import { PagamentoCompraPageComponent } from './pagamento-compra-page/pagamento-compra-page.component';
@@ -51,14 +53,33 @@ import { DialogoPagamentoComponent } from './pagamento-page/dialogo-pagamento/di
 import { DialogoPagamentoCompraPageComponent } from './pagamento-compra-page/dialogo-pagamento-compra-page/dialogo-pagamento-compra-page.component';
 import { PagamentoService } from './services/pagamento.service';
 import { PagamentoCompraService } from './services/pagamento-compra.service';
+=======
+
+import { CompraPageComponent } from './compra-page/compra-page.component';
+import { NotaPageComponent } from './nota-page/nota-page.component';
+import { DialogoCompraComponent } from './compra-page/dialogo-compra/dialogo-compra.component';
+import { DialogoNotaComponent } from './nota-page/dialogo-nota/dialogo-nota.component';
+import { CompraService } from './services/compra.service';
+import { NotaService } from './services/nota.service';
+
+import { AdicionarProdutosAoCarrinhoComponent } from './carrinho-page/dialogo-produtos-carrinho/adicionar-produtos-ao-carrinho/adicionar-produtos-ao-carrinho.component';
+import { ListarProdutosCarrinhoComponent } from './carrinho-page/dialogo-produtos-carrinho/listar-produtos-carrinho/listar-produtos-carrinho.component';
+
+>>>>>>> 5aa1ceebdbdf087b8572cf4199a32467f822c646
 
 const appRoutes: Routes = [
 	{ path: 'marca-page', component: MarcaPageComponent },
   { path: 'pessoa-page', component: PessoaPageComponent },
   { path: 'produto-page', component: ProdutoPageComponent},
+<<<<<<< HEAD
   { path: 'carrinho-page', component: CarrinhoPageComponent},
   { path: 'pagamento-page', component: PagamentoPageComponent},
   { path: 'pagamento-compra-page', component: PagamentoCompraPageComponent},
+=======
+  { path: 'nota-page', component: NotaPageComponent },
+  { path: 'compra-page', component: CompraPageComponent },
+  { path: 'carrinho-page', component: CarrinhoPageComponent}
+>>>>>>> 5aa1ceebdbdf087b8572cf4199a32467f822c646
 ];
 
 @NgModule({
@@ -75,10 +96,19 @@ const appRoutes: Routes = [
 		CarrinhoPageComponent,
 		DialogoCarrinhoComponent,
 		DialogoAlterarCarrinhoComponent,
+<<<<<<< HEAD
 		DialogoProdutosCarrinhoComponent,
 		PagamentoPageComponent,
 		PagamentoCompraPageComponent,
 		DialogoPagamentoComponent
+=======
+    ListarProdutosCarrinhoComponent,
+    AdicionarProdutosAoCarrinhoComponent,
+		CompraPageComponent,
+		NotaPageComponent,
+		DialogoCompraComponent,
+		DialogoNotaComponent
+>>>>>>> 5aa1ceebdbdf087b8572cf4199a32467f822c646
 	],
 	imports: [
 		BrowserModule,
@@ -103,18 +133,28 @@ const appRoutes: Routes = [
     MatInputModule,
     MatSlideToggleModule,
     FormsModule,
+    MatTabsModule,
     MatBadgeModule,
 		RouterModule.forRoot(appRoutes)
 	],
 	providers: [
 		NotificacaoService,
 		MarcaService,
+<<<<<<< HEAD
     	PessoaService,
    		ProdutoService,
     	CarrinhoService,
 		ProdutoCarrinhoService,
 		PagamentoService,
 		PagamentoCompraService
+=======
+    PessoaService,
+    ProdutoService,
+    CarrinhoService,
+	ProdutoCarrinhoService,
+	CompraService,
+	NotaService
+>>>>>>> 5aa1ceebdbdf087b8572cf4199a32467f822c646
 	],
 	entryComponents: [
 		DialogoMarcaComponent,
@@ -122,10 +162,18 @@ const appRoutes: Routes = [
     DialogoProdutoComponent,
     DialogoAlterarProdutoComponent,
     DialogoCarrinhoComponent,
+<<<<<<< HEAD
 	DialogoAlterarCarrinhoComponent,
 	DialogoPagamentoComponent
 	
 	
+=======
+	  DialogoAlterarCarrinhoComponent,
+	  DialogoCompraComponent,
+    DialogoNotaComponent,
+    ListarProdutosCarrinhoComponent,
+    AdicionarProdutosAoCarrinhoComponent,
+>>>>>>> 5aa1ceebdbdf087b8572cf4199a32467f822c646
 	],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
 	bootstrap: [AppComponent]

@@ -1,0 +1,38 @@
+<div [ngStyle]="{'width': '400px' ,'overflow-y': 'auto'}">
+
+    <mat-form-field>
+      <input name="carrinho" matInput placeholder="Código do carrinho" [(ngModel)]="produtoCarrinho.carrinho.codigo" readonly disabled>
+    </mat-form-field><br>
+
+    <mat-form-field>
+      <input name="cliente" matInput placeholder="Cliente do carrinho" [(ngModel)]="produtoCarrinho.carrinho.pessoa.nome" readonly disabled>
+    </mat-form-field><br>
+
+    <mat-form-field>
+      <mat-label>Selecione um produto</mat-label>
+      <mat-select [(ngModel)]="produtoCarrinho.produto" name="produto">
+        <mat-option *ngFor="let produto of produtos" [value]="produto">
+          {{ produto.codigo }} - {{ produto.nome }} - {{ produto.preco | currency: 'BRL' }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field><br>
+
+    <mat-form-field>
+        <input name="quantidade" type="number" matInput placeholder="Quantidade do produto" [(ngModel)]="produtoCarrinho.quantidade">
+    </mat-form-field><br>
+
+    <div [ngStyle]="{'display': 'block', 'width': '100%'}">
+
+      <button [ngStyle]="{'float': 'left'}" mat-raised-button color="primary" (click)="adicionarProduto()" [disabled]="(produtoCarrinho.produto == null || produtoCarrinho.quantidade == null) ? 'true' : 'false'">
+        <mat-icon class="material-icons">add</mat-icon>
+        Adicionar
+      </button>
+
+      <button [ngStyle]="{'float': 'right'}" mat-raised-button color="accent" (click)="apagar()">
+        <mat-icon class="material-icons">create</mat-icon>
+        Corrigir
+      </button>
+
+    </div>
+
+</div>
