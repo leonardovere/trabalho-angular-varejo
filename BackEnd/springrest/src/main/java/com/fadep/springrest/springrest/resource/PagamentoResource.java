@@ -25,7 +25,7 @@ import com.fadep.springrest.springrest.repository.PagamentoRepository;
 import com.fadep.springrest.springrest.service.PagamentoService;
 
 @RestController
-@RequestMapping("/pagamento")
+@RequestMapping("/pagamentos")
 public class PagamentoResource {
 
 	@Autowired

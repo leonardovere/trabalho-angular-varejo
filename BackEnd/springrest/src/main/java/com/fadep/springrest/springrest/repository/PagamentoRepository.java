@@ -6,4 +6,5 @@ import com.fadep.springrest.springrest.model.Pagamento;
 
 public interface PagamentoRepository extends JpaRepository<Pagamento, Long>{
 
+	
 }
