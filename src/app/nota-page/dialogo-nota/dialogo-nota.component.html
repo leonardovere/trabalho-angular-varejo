@@ -3,9 +3,9 @@
 
     <mat-form-field>
       <mat-label>Selecione a compra</mat-label>
-      <mat-select [(ngModel)]="nota.notaCarrinho" name="compra">
-        <mat-option *ngFor="let compra of compras" [value]="compra">
-          {{ compra.codigo}} - {{compra.pessoa.nome}} - {{ (compra.valorComDesconto == null ? 0 : compra.valorComDesconto) | currency: 'BRL' }}
+      <mat-select [(ngModel)]="nota.cod_compra" name="compra">
+        <mat-option *ngFor="let compra of compras" [value]="cod_compra">
+          {{ nota.compra.codigo}} - {{nota.compra.pessoa.nome}} - {{ (nota.compra.valorComDesconto == null ? 0 : nota.compra.valorComDesconto) | currency: 'BRL' }}
         </mat-option>
       </mat-select>
     </mat-form-field><br>
