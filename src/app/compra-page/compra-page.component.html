@@ -1,32 +1,34 @@
-<div style="margin-left: 15px; margin-top: 15px;">
+<div style="margin-left: 10px; margin-top: 10px;">
 
     <mat-list id="compralista" style="max-height: 150vh; overflow-y: auto;">
     
         <h1 mat-subheader>Compras</h1>
     
-        <div style="margin-left: 15px; margin-top: 15px;">
+        <div style="margin-left: 10px; margin-top: 10px;">
     
             <button id="novaCompra" mat-fab class="bottomButtom"
             color="accent" (click)="novaCompra()">
                 <mat-icon>add</mat-icon>
             </button>    
-            <mat-list-item *ngFor="let compra of compras">
-            
-            <h5 mat-line>
-                {{"Compra: "}}{{compra.codigo}}
-            </h5>
-        
-            <h4 mat-line>
-                
-                {{"Nome da Pessoa: "}}{{compra.compraCarrinho.pessoa.nome}}<br>
-                {{"Valor Total: "}} {{ (compra.compraCarrinho.valorTotal == null ? 0 : compra.compraCarrinho.valorTotal) | currency: 'BRL' }}
-                {{"Valor com o Desconto: "}} {{ (compra.valorComDesconto == null ? 0 : compra.valorComDesconto) | currency: 'BRL' }}
-            </h4>
+            <div>
+                <mat-list-item *ngFor="let compra of compras">        
+                <h5 mat-line>
+                    
+                    {{"Compra: "}}{{compra.codigo}}
+                    
+                </h5>
+                <h4 mat-line >
+                    {{"Nome da Pessoa: "}}{{compra.compraCarrinho.pessoa.nome}}<br>
+                    <b>{{"Valor Total do Carrinho: "}} {{ (compra.compraCarrinho.valorTotal == null ? 0 : compra.compraCarrinho.valorTotal) | currency: 'BRL' }}</b>
+                    {{"Desconto: "}} {{ (compra.desconto == null ? 0 : compra.desconto) | currency: 'BRL' }}<br>
+                    <b>{{"Valor com o Desconto: "}} {{ (compra.valorComDesconto == null ? 0 : compra.valorComDesconto) | currency: 'BRL' }}<br></b>
+                </h4>
                 <button mat-icon-button (click)="remover(compra)">
                     <mat-icon class="iconcolor"
                     aria-label="Remover">delete</mat-icon>
                 </button>
-            </mat-list-item>
+                </mat-list-item>
+            </div>
         </div>
     </mat-list>
 </div>
