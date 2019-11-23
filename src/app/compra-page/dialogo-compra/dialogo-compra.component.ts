@@ -31,7 +31,12 @@ export class DialogoCompraComponent implements OnInit {
   }
 
   salvar() {
-    this.compra.valorComDesconto ;
+    if(this.compra.desconto != null){
+      this.compra.valorComDesconto = this.compra.compraCarrinho.valorTotal - this.compra.desconto;
+    }else{
+      this.compra.valorComDesconto = this.compra.compraCarrinho.valorTotal;
+    }
+    
     this.compraService.salvar(this.compra).subscribe(
       dados => {
         this.dialogoReferencia.close(dados);

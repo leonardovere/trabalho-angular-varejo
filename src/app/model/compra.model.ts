@@ -1,6 +1,8 @@
+import { Carrinho } from './carrinho.model';
+
 export class Compra {
     codigo : number;
-	compraCarrinho : number;
+	compraCarrinho : Carrinho;
 	desconto : number;
 	valorComDesconto : number;
 	dt_compra : Date;
