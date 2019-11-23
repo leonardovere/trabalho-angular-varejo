@@ -5,11 +5,13 @@
       <mat-label>Selecione a carrinho</mat-label>
       <mat-select [(ngModel)]="compra.compraCarrinho" name="carrinho">
         <mat-option *ngFor="let carrinho of carrinhos" [value]="carrinho">
-          {{ carrinho.codigo}} {{carrinho.pessoa.nome}} {{carrinho.valorTotal}}
+          {{ carrinho.codigo}} - {{carrinho.pessoa.nome}} - {{ (carrinho.valorTotal == null ? 0 : carrinho.valorTotal) | currency: 'BRL' }}
         </mat-option>
       </mat-select>
     </mat-form-field><br>
-
+    <mat-form-field>
+        <input name="desconto" type="number" matInput placeholder="Valor do desconto (R$ Ex:1.50)" [(ngModel)]="compra.desconto">
+    </mat-form-field><br>
 </div>
 
 <div mat-dialog-actions fxLayout="row" fxLayoutAlign="end center">

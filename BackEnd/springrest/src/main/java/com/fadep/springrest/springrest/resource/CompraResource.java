@@ -56,8 +56,7 @@ public class CompraResource {
 	@PostMapping
 	public ResponseEntity<Compra> criar(@Valid @RequestBody Compra compra, HttpServletResponse response) {
 		Compra compraSalva = compraRepository.save(compra);
-		publisher.publishEvent(new RecursoCriadoListener(this, response, compraSalva.getCodigo()));
-		
+		publisher.publishEvent(new RecursoCriadoListener(this, response, compraSalva.getCodigo()));		
 		return ResponseEntity.status(HttpStatus.CREATED).body(compraSalva);
 	}
 	
@@ -75,3 +74,4 @@ public class CompraResource {
 	}
 	
 }
+

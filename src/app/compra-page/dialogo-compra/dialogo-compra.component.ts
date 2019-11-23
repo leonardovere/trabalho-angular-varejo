@@ -1,10 +1,12 @@
-import { MatDialogRef } from '@angular/material';
+import { MatDialogRef, MatOption } from '@angular/material';
 import { NotificacaoService } from './../../services/notificacao.service';
 import { CarrinhoService } from './../../services/carrinho.service';
 import { CompraService } from './../../services/compra.service';
 import { Compra } from './../../model/compra.model';
 import { Carrinho } from './../../model/carrinho.model';
 import { Component, OnInit } from '@angular/core';
+import { getLocaleDayPeriods } from '@angular/common';
+import { FormControlName } from '@angular/forms';
 
 @Component({
   selector: 'app-dialogo-compra',
@@ -29,6 +31,7 @@ export class DialogoCompraComponent implements OnInit {
   }
 
   salvar() {
+    this.compra.valorComDesconto ;
     this.compraService.salvar(this.compra).subscribe(
       dados => {
         this.dialogoReferencia.close(dados);

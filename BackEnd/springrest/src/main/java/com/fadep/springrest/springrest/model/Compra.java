@@ -15,7 +15,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="compra")
 public class Compra {
-
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="codigo")
@@ -32,8 +32,7 @@ public class Compra {
 	private BigDecimal valorComDesconto;
 	
 	@Column(name="dt_compra")
-	private Date dtCompra;	
-	
+	private Date dtCompra;
 
 	public Long getCodigo() {
 		return codigo;
@@ -74,6 +73,12 @@ public class Compra {
 	public void setDtCompra(Date dtCompra) {
 		this.dtCompra = dtCompra;
 	}
+	
+//	public BigDecimal calculoValorComDesconto() {
+//		BigDecimal valor = BigDecimal.valueOf(1.0);
+//		valor = BigDecimal.valueOf(this.compraCarrinho.getValorTotal().doubleValue() - this.desconto.doubleValue());		
+//		return valor;
+//	}
 
 	@Override
 	public int hashCode() {

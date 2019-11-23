@@ -35,7 +35,6 @@ export class MarcaPageComponent implements OnInit {
 				3000);
 		});
 	}
-
 	remover(marca: Marca): void {
 		this.marcaService.deletar(marca.codigo).subscribe(
 			res => {
@@ -73,8 +72,5 @@ export class MarcaPageComponent implements OnInit {
 				"OK", 3000
 			);
 		});
-
 	}
-
-
 }
