@@ -3,9 +3,9 @@
 
     <mat-form-field>
       <mat-label>Selecione a carrinho</mat-label>
-      <mat-select [(ngModel)]="compra.compraCarrinho" name="compraCarrinho">
-        <mat-option *ngFor="let carrinho of carrinhos" [value]="compraCarrinho">
-          {{ carrinho.codigo }}
+      <mat-select [(ngModel)]="compra.compraCarrinho" name="carrinho">
+        <mat-option *ngFor="let carrinho of carrinhos" [value]="carrinho">
+          {{ carrinho.codigo}} {{carrinho.pessoa.nome}} {{carrinho.valorTotal}}
         </mat-option>
       </mat-select>
     </mat-form-field><br>

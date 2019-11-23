@@ -1,6 +1,6 @@
 <div style="margin-left: 15px; margin-top: 15px;">
 
-    <mat-list id="marcalista" style="max-height: 150vh; overflow-y: auto;">
+    <mat-list id="compralista" style="max-height: 150vh; overflow-y: auto;">
     
         <h1 mat-subheader>Compras</h1>
     
@@ -11,8 +11,14 @@
                 <mat-icon>add</mat-icon>
             </button>    
             <mat-list-item *ngFor="let compra of compras">
-    
-                <h4 mat-line>{{compra.codigo}}</h4>
+            
+            <h3 mat-line>
+                {{"Compra: "}}{{compra.codigo}}
+            </h3>
+            <h4 mat-line>
+                {{"Nome da Pessoa: "}}{{compra.compraCarrinho.pessoa.nome}}<br>
+                {{"Valor Total: "}} {{ (compra.compraCarrinho.valorTotal == null ? 0 : compra.compraCarrinho.valorTotal) | currency: 'BRL' }}
+            </h4>
                 <button mat-icon-button (click)="remover(compra)">
                     <mat-icon class="iconcolor"
                     aria-label="Remover">delete</mat-icon>
