@@ -1,15 +1,15 @@
+<h1 mat-dialog-title>Cadastro de Compra</h1>
+<div mat-dialog-content [ngStyle]="{'width': '400px'}">
 
-<h1 mat-dialog-title>Cadastro da Compra</h1>
-<div mat-dialog-content>
+    <mat-form-field>
+      <mat-label>Selecione a carrinho</mat-label>
+      <mat-select [(ngModel)]="compra.compraCarrinho" name="compraCarrinho">
+        <mat-option *ngFor="let carrinho of carrinhos" [value]="compraCarrinho">
+          {{ carrinho.codigo }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field><br>
 
-        <!-- <mat-form-field class="full-width">
-            <input name="nome" matInput placeholder="Nome da compra" [(ngModel)]="compra.nome">
-        </mat-form-field> -->
-
-        <mat-form-field class="full-width">
-            <input name="compra_carrinho" matInput 
-                placeholder="Codigo do Carrinho" [(ngModel)]="compra">
-        </mat-form-field>
 </div>
 
 <div mat-dialog-actions fxLayout="row" fxLayoutAlign="end center">
