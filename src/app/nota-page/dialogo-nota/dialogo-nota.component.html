@@ -1,1 +1,17 @@
-<p>dialogo-nota works!</p>
+<h1 mat-dialog-title>Cadastro de Nota</h1>
+<div mat-dialog-content [ngStyle]="{'width': '400px'}">
+
+    <mat-form-field>
+      <mat-label>Selecione a compra</mat-label>
+      <mat-select [(ngModel)]="nota.notaCarrinho" name="compra">
+        <mat-option *ngFor="let compra of compras" [value]="compra">
+          {{ compra.codigo}} - {{compra.pessoa.nome}} - {{ (compra.valorComDesconto == null ? 0 : compra.valorComDesconto) | currency: 'BRL' }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field><br>
+</div>
+
+<div mat-dialog-actions fxLayout="row" fxLayoutAlign="end center">
+    <button mat-button (click)="cancelar()" color="accent">Cancelar</button>
+    <button mat-button (click)="salvar()" color="primary">Salvar</button>
+</div>
