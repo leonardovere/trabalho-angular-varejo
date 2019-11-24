@@ -23,7 +23,7 @@ export class DialogoPagamentoCompraPageComponent {
 
 	listarPagamentoCompra() {
 
-		this.pagamentoCompraService.listarPagamentoCompra().subscribe(res => {
+		this.pagamentoCompraService.listarPagamentoCompras().subscribe(res => {
 			this.pagamentoCompras = res;
 		}, err => {
 			this.notificacaoService.mostrarMensagem(

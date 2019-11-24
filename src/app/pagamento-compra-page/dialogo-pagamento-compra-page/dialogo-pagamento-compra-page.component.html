@@ -6,21 +6,53 @@
 
         <div style="margin-left: 15px; margin-top: 15px;">
 
-            <button id="novoPagamentoCompra" mat-fab class="bottomButtom" 
-            color="accent" (click)="novoPagamentoCompra()">
-                <mat-icon>add</mat-icon>
-            </button>
+            <mat-form-field>
+                <mat-label>Selecione a compra</mat-label>
+                <mat-select [(ngModel)]="pagamentoCompra.compra" name="compra">
+                    <mat-option *ngFor="let compra of compras" [value]="compra">
+                    {{ compra.codigo }} - {{ compra.valorcomdesconto }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field><br>
 
-            <mat-list-item *ngFor="let pagamentoCompra of pagamentoCompras">
+            <mat-form-field>
+                <mat-label>Selecione a forma pagamento</mat-label>
+                <mat-select [(ngModel)]="pagamentoCompra.pagamento" name="pagamento">
+                    <mat-option *ngFor="let pagamento of pagamentos" [value]="pagamento">
+                    {{ pagamento.codigo }} - {{ pagamento.tipo }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field><br>
 
-                <h4 mat-line>{{pagamentoCompra.codigo}}</h4>
-                <button mat-icon-button (click)="remover(pagamentoCompra)">
-                    <mat-icon class="iconcolor" 
-                    aria-label="Remover">delete</mat-icon>
-                </button>
+            <mat-form-field>
+                <input name="numeroDoCartao" matInput placeholder="Número do cartão" [(ngModel)]="pagamentoCompra.numCartao" type="number">
+            </mat-form-field><br>
 
+            <mat-form-field>
+                <input name="numeroDeVezes" matInput placeholder="Número de vezes" [(ngModel)]="pagamentoCompra.vezes" type="number">
+            </mat-form-field><br>
+            
+            <mat-form-field>
+                <input name="numeroDoBoleto" matInput placeholder="Número do boleto" [(ngModel)]="pagamentoCompra.numBoleto" type="number">
+            </mat-form-field><br>
 
-            </mat-list-item>
+            <mat-form-field>
+                <input name="numeroAgencia" matInput placeholder="Número da agência" [(ngModel)]="pagamentoCompra.agencia" type="number">
+            </mat-form-field><br>
+
+            <mat-form-field>
+                <input matInput [matDatepicker]="picker" [(ngModel)]="pagamentoCompra.dtEmissao" placeholder="Data de emissão" readonly>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput [matDatepicker]="picker" [(ngModel)]="pagamentoCompra.dtVencimento" placeholder="Data de vencimento" readonly>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            
 
         </div>
 
