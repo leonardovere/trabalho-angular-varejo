@@ -14,7 +14,7 @@
           <mat-list-item *ngFor="let carrinho of carrinhosComTotal">
 
               <h4 mat-line>
-                {{ carrinho.codigo }} - {{ carrinho.pessoa.nome }} - {{ (carrinho.valorTotal == null ? 0 : carrinho.valorTotal) | currency: 'BRL' }}
+                {{ carrinho.carrinho.codigo }} - {{ carrinho.carrinho.pessoa.nome }} - {{ (carrinho.carrinho.valorTotal == null ? 0 : carrinho.carrinho.valorTotal) | currency: 'BRL' }}
               </h4>
 
               <button mat-icon-button (click)="adicionarProdutosAoCarrinho(carrinho)">
@@ -25,12 +25,12 @@
                   <mat-icon class="material-icons" [matBadge]="carrinho.totalProdutos == null ? 0 : carrinho.totalProdutos" matBadgeColor="primary" aria-label="Listar Produtos">shopping_basket</mat-icon>
               </button>
 
-              <button mat-icon-button (click)="remover(carrinho)">
+              <button mat-icon-button (click)="remover(carrinho.carrinho)">
                   <mat-icon class="iconcolor"
                   aria-label="Remover">delete</mat-icon>
               </button>
 
-              <button mat-icon-button (click)="alterarCarrinho(carrinho)">
+              <button mat-icon-button (click)="alterarCarrinho(carrinho.carrinho)">
                   <mat-icon class="material-icons"
                   aria-label="Alterar">build</mat-icon>
               </button>

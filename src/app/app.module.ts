@@ -31,7 +31,9 @@ import { MatBadgeModule } from '@angular/material/badge';
 import {
 	MatSnackBarModule,
 	MatDialogModule,
-	MatInputModule
+	MatInputModule,
+	MatNativeDateModule
+
 	} from '@angular/material';
 import { HttpClientModule } from '../../node_modules/@angular/common/http';
 import { FormsModule } from '../../node_modules/@angular/forms';
@@ -58,9 +60,14 @@ import { CompraPageComponent } from './compra-page/compra-page.component';
 import { NotaPageComponent } from "./nota-page/NotaPageComponent";
 import { CompraService } from './services/compra.service';
 import { NotaService } from './services/nota.service';
+<<<<<<< HEAD
 import { ImagemPageComponent } from './imagem-page/imagem-page.component';
 import { DialogoImagemComponent } from './imagem-page/dialogo-imagem/dialogo-imagem.component';
 import { ImagemService } from './services/imagem.service';
+=======
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
+>>>>>>> db5a50db41a60ecea21069c173a3c8594eb43f9e
 
 const appRoutes: Routes = [
 	{ path: 'marca-page', component: MarcaPageComponent },
@@ -90,7 +97,6 @@ const appRoutes: Routes = [
 		CarrinhoPageComponent,
 		DialogoCarrinhoComponent,
 		DialogoAlterarCarrinhoComponent,
-//		DialogoProdutosCarrinhoComponent,
 		ListarProdutosCarrinhoComponent,
 		AdicionarProdutosAoCarrinhoComponent,
 		CompraPageComponent,
@@ -99,7 +105,9 @@ const appRoutes: Routes = [
 		DialogoNotaComponent,
 		PagamentoPageComponent,
 		PagamentoCompraPageComponent,
-		DialogoPagamentoComponent
+		DialogoPagamentoComponent,
+		DialogoPagamentoCompraPageComponent
+		
 	],
 	imports: [
 		BrowserModule,
@@ -125,7 +133,10 @@ const appRoutes: Routes = [
     MatSlideToggleModule,
     FormsModule,
     MatTabsModule,
-    MatBadgeModule,
+	MatBadgeModule,
+	MatDatepickerModule,
+	MatNativeDateModule,
+	
 		RouterModule.forRoot(appRoutes)
 	],
 	providers: [
@@ -153,7 +164,8 @@ const appRoutes: Routes = [
 	ListarProdutosCarrinhoComponent,
 	AdicionarProdutosAoCarrinhoComponent,
 	DialogoNotaComponent,
-	DialogoPagamentoComponent
+	DialogoPagamentoComponent,
+	DialogoPagamentoCompraPageComponent
 	],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
 	bootstrap: [AppComponent]

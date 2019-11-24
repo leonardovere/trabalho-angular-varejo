@@ -21,7 +21,7 @@ export class PagamentoCompraService {
         `${this.apiUrl}pagamentoCompra/${codigo}`);
     }
 
-    listarPagamentoCompra(): Observable<PagamentoCompra[]> {
+    listarPagamentoCompras(): Observable<PagamentoCompra[]> {
         return this.httpClient.get<PagamentoCompra[]>(
         `${this.apiUrl}pagamentoCompra`);
     }

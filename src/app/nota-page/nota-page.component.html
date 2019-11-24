@@ -13,8 +13,8 @@
 
             <mat-list-item *ngFor="let nota of notas">
 
-                <h4 mat-line>{{nota.codigo}} - {{ nota.nome }} - {{ pessoa.cpf }} }</h4>
-                <button mat-icon-button (click)="remover(pessoa)">
+ 
+                <button mat-icon-button (click)="remover(nota)">
                     <mat-icon class="iconcolor"
                     aria-label="Remover">delete</mat-icon>
                 </button>
