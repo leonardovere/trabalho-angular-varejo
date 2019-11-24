@@ -16,7 +16,7 @@ import { FormControlName } from '@angular/forms';
 export class DialogoNotaComponent implements OnInit {
 
   nota: Nota = new Nota();
-  notas: Compra[];
+  compras: Compra[];
 
   constructor(
     private notaService: NotaService,
@@ -52,7 +52,7 @@ export class DialogoNotaComponent implements OnInit {
         if (dados.length === 0) {
           this.notificacaoService.mostrarMensagem('A lista de notas está vazia!', 'OK', 3000);
         } else {
-          this.notas = dados;
+          this.compras = dados;
         }
       },
       error => {

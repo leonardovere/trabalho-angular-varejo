@@ -10,8 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="nota")
@@ -23,13 +21,9 @@ public class Nota {
 	private Long codigo;
 	
 	@ManyToOne
-	@NotNull
-	@Size(min=1, max=200)
 	@JoinColumn(name="cod_compra")
 	private Compra codCompra;
 	
-	@NotNull
-	@Size(min=3, max=30)
 	@Column(name="dt_nota")
 	private Date dtNota;
 

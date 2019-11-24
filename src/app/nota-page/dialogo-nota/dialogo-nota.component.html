@@ -3,14 +3,14 @@
 
     <mat-form-field>
       <mat-label>Selecione a compra</mat-label>
-      <mat-select [(ngModel)]="nota.cod_compra" name="compra">
-        <mat-option *ngFor="let compra of compras" [value]="cod_compra">
-          {{ nota.compra.codigo}} - {{nota.compra.pessoa.nome}} - {{ (nota.compra.valorComDesconto == null ? 0 : nota.compra.valorComDesconto) | currency: 'BRL' }}
+      <mat-select [(ngModel)]="nota.codCompra" name="compra">
+        <mat-option *ngFor="let compra of compras" [value]="compra">
+          {{ compra.codigo}} - {{compra.compraCarrinho.pessoa.nome}} - {{ (compra.valorComDesconto == null ? 0 : compra.valorComDesconto) | currency: 'BRL' }}
         </mat-option>
       </mat-select>
     </mat-form-field><br>
-</div>
-ng
+  </div>
+
 <div mat-dialog-actions fxLayout="row" fxLayoutAlign="end center">
     <button mat-button (click)="cancelar()" color="accent">Cancelar</button>
     <button mat-button (click)="salvar()" color="primary">Salvar</button>

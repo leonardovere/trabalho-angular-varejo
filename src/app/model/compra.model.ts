@@ -5,7 +5,7 @@ export class Compra {
 	compraCarrinho : Carrinho;
 	desconto : number;
 	valorComDesconto : number;
-	dt_compra : Date;
+	dtCompra : Date;
 }
 
 

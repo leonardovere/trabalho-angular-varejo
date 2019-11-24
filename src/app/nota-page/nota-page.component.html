@@ -5,23 +5,27 @@
         <h1 mat-subheader>Notas</h1>
 
         <div style="margin-left: 15px; margin-top: 15px;">
-
             <button id="novaNota" mat-fab class="bottomButtom"
             color="accent" (click)="novaNota()">
                 <mat-icon>add</mat-icon>
-            </button>
-
-            <mat-list-item *ngFor="let nota of notas">
-
- 
-                <button mat-icon-button (click)="remover(nota)">
+            </button>    
+            <div>
+                <mat-list-item *ngFor="let nota of notas">        
+                <h5 mat-line>                    
+                    {{"Nota Número: "}}{{nota.codigo}}                    
+                </h5>
+                <h4 mat-line >
+                    {{"Nome da Pessoa: "}}{{nota.codCompra.compraCarrinho.pessoa.nome}}
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    {{"Valor Total da Nota: "}} {{ (nota.codCompra.valorComDesconto == null ? 0 : nota.codCompra.valorComDesconto) | currency: 'BRL' }}
+                   
+                </h4>
+                <button mat-icon-button (click)="remover(compra)">
                     <mat-icon class="iconcolor"
                     aria-label="Remover">delete</mat-icon>
                 </button>
-
-
-            </mat-list-item>
-
+                </mat-list-item>
+            </div>
         </div>
 
     </mat-list>
