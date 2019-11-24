@@ -60,14 +60,9 @@ import { CompraPageComponent } from './compra-page/compra-page.component';
 import { NotaPageComponent } from "./nota-page/NotaPageComponent";
 import { CompraService } from './services/compra.service';
 import { NotaService } from './services/nota.service';
-<<<<<<< HEAD
 import { ImagemPageComponent } from './imagem-page/imagem-page.component';
 import { DialogoImagemComponent } from './imagem-page/dialogo-imagem/dialogo-imagem.component';
 import { ImagemService } from './services/imagem.service';
-=======
-import {MatDatepickerModule} from '@angular/material/datepicker';
-
->>>>>>> db5a50db41a60ecea21069c173a3c8594eb43f9e
 
 const appRoutes: Routes = [
 	{ path: 'marca-page', component: MarcaPageComponent },
