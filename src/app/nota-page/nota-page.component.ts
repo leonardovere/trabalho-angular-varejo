@@ -4,6 +4,7 @@ import { Nota } from './../model/nota.model';
 import { NotificacaoService } from './../services/notificacao.service';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
+import { DialogoAlterarNotaComponent } from './dialogo-alterar-nota/dialogo-alterar-nota.component';
 
 @Component({
   selector: 'app-nota-page',
@@ -71,4 +72,20 @@ export class NotaPageComponent implements OnInit {
 			);
 		});
 	}
+
+	alterarNota(nota: Nota) {
+		this.dialogo.open(DialogoAlterarNotaComponent, {data: nota}).afterClosed()
+		.subscribe(
+		  dados => {
+			if (dados) {
+			  this.listarNotas();
+			  this.notificacaoService.mostrarMensagem('Nota alterado com sucesso!', 'OK', 3000);
+			}
+		  },
+		  error => {
+			this.notificacaoService.mostrarMensagem('Não foi possível alterar o nota!', 'OK', 3000);
+			console.error(error);
+		  }
+		);
+	  }
 }

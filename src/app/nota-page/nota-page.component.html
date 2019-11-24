@@ -20,9 +20,14 @@
                     {{"Valor Total da Nota: "}} {{ (nota.codCompra.valorComDesconto == null ? 0 : nota.codCompra.valorComDesconto) | currency: 'BRL' }}
                    
                 </h4>
-                <button mat-icon-button (click)="remover(compra)">
+                <button mat-icon-button (click)="remover(nota)">
                     <mat-icon class="iconcolor"
                     aria-label="Remover">delete</mat-icon>
+                </button>
+                
+                <button mat-icon-button (click)="alterarNota(nota)">
+                    <mat-icon class="material-icons"
+                    aria-label="Alterar">build</mat-icon>
                 </button>
                 </mat-list-item>
             </div>

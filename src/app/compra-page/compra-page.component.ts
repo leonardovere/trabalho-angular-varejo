@@ -4,6 +4,7 @@ import { Compra } from './../model/compra.model';
 import { NotificacaoService } from './../services/notificacao.service';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
+import { DialogoAlterarCompraComponent } from './dialogo-alterar-compra/dialogo-alterar-compra.component';
 
 @Component({
   selector: 'app-compra-page',
@@ -71,4 +72,20 @@ export class CompraPageComponent implements OnInit {
 			);
 		});
 	}
+
+	alterarCompra(compra: Compra) {
+		this.dialogo.open(DialogoAlterarCompraComponent, {data: compra}).afterClosed()
+		.subscribe(
+		  dados => {
+			if (dados) {
+			  this.listarCompras();
+			  this.notificacaoService.mostrarMensagem('Compra alterada com sucesso!', 'OK', 3000);
+			}
+		  },
+		  error => {
+			this.notificacaoService.mostrarMensagem('Não foi possível alterar a Compra!', 'OK', 3000);
+			console.error(error);
+		  }
+		);
+	  }
 }

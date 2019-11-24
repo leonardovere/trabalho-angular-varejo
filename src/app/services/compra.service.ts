@@ -25,4 +25,9 @@ export class CompraService {
         return this.httpClient.get<Compra[]>(
         `${this.apiUrl}compras`);
     }
+
+    alterarCompra(compra : Compra) {
+        return this.httpClient.put<Compra>(
+        (`${this.apiUrl}compras/${compra.codigo}`), compra);
+      }
 }

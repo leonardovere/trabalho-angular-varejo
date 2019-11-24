@@ -65,6 +65,8 @@ import { ImagemPageComponent } from './imagem-page/imagem-page.component';
 import { DialogoImagemComponent } from './imagem-page/dialogo-imagem/dialogo-imagem.component';
 import { ImagemService } from './services/imagem.service';
 import { NotaPageComponent } from './nota-page/nota-page.component';
+import { DialogoAlterarNotaComponent } from './nota-page/dialogo-alterar-nota/dialogo-alterar-nota.component';
+import { DialogoAlterarCompraComponent } from './compra-page/dialogo-alterar-compra/dialogo-alterar-compra.component';
 
 const appRoutes: Routes = [
 	{ path: 'marca-page', component: MarcaPageComponent },
@@ -103,7 +105,9 @@ const appRoutes: Routes = [
 		PagamentoPageComponent,
 		DialogoPagamentoComponent,
 		PagamentoCompraPageComponent,
-		DialogoPagamentoCompraPageComponent
+		DialogoAlterarCompraComponent,
+		DialogoPagamentoCompraPageComponent,
+		DialogoAlterarNotaComponent
 		
 	],
 	imports: [
@@ -150,7 +154,7 @@ const appRoutes: Routes = [
 		NotaService
 	],
 	entryComponents: [
-		DialogoMarcaComponent,
+	DialogoMarcaComponent,
     DialogoPessoaComponent,
     DialogoProdutoComponent,
     DialogoAlterarProdutoComponent,
@@ -158,9 +162,11 @@ const appRoutes: Routes = [
 	DialogoImagemComponent,
 	DialogoAlterarCarrinhoComponent,
 	DialogoCompraComponent,
+	DialogoAlterarCompraComponent,
 	ListarProdutosCarrinhoComponent,
 	AdicionarProdutosAoCarrinhoComponent,
 	DialogoNotaComponent,
+	DialogoAlterarNotaComponent,
 	DialogoPagamentoComponent,
 	DialogoPagamentoCompraPageComponent
 	],

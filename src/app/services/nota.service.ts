@@ -25,4 +25,9 @@ export class NotaService {
         return this.httpClient.get<Nota[]>(
         `${this.apiUrl}notas`);
     }
+
+    alterarNota(nota : Nota) {
+        return this.httpClient.put<Nota>(
+        (`${this.apiUrl}notas/${nota.codigo}`), nota);
+      }
 }
