@@ -11,7 +11,7 @@ import { MatDialog } from '@angular/material';
 })
 export class DialogoPagamentoCompraPageComponent {
 
-  pagamentoCompras: PagamentoCompra[];
+  pagamentoCompra: PagamentoCompra[];
 
 	constructor(
 		private pagamentoCompraService: PagamentoCompraService,
@@ -24,10 +24,10 @@ export class DialogoPagamentoCompraPageComponent {
 	listarPagamentoCompra() {
 
 		this.pagamentoCompraService.listarPagamentoCompras().subscribe(res => {
-			this.pagamentoCompras = res;
+			this.pagamentoCompra = res;
 		}, err => {
 			this.notificacaoService.mostrarMensagem(
-				"Não foi possível buscar os pagamento e compras!",
+				"Não foi possível buscar os pagamento e as compras!",
 				"OK", 
 				3000);
 		});
@@ -38,7 +38,7 @@ export class DialogoPagamentoCompraPageComponent {
 			res => {
 				this.listarPagamentoCompra();
 				this.notificacaoService.mostrarMensagem(
-					"Pagamento e compra foi deletado com sucesso!",
+					"Pagamento e compra foram deletados com sucesso!",
 					"OK",
 					3000
 				);
@@ -56,7 +56,7 @@ export class DialogoPagamentoCompraPageComponent {
 		this.dialogo.open(DialogoPagamentoCompraPageComponent, {data: new PagamentoCompra}).afterClosed()
 		.subscribe(result => {
 			if (result) {
-				this.pagamentoCompras.push(result);
+				this.pagamentoCompra.push(result);
 				this.notificacaoService.mostrarMensagem(
 					"Salvo com sucesso!", 
 					"OK", 3000

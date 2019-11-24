@@ -12,7 +12,7 @@ import { DialogoPagamentoCompraPageComponent } from './dialogo-pagamento-compra-
 })
 export class PagamentoCompraPageComponent implements OnInit {
 
-  pagamentoCompras: PagamentoCompra[];
+  pagamentoCompra: PagamentoCompra[];
 
 	constructor(
 		private pagamentoCompraService: PagamentoCompraService,
@@ -21,13 +21,13 @@ export class PagamentoCompraPageComponent implements OnInit {
 	) { }
 
 	ngOnInit() {
-		this.listarPagamentoCompras();
+		this.listarPagamentoCompra();
 	}
 
-	listarPagamentoCompras() {
+	listarPagamentoCompra() {
 
 		this.pagamentoCompraService.listarPagamentoCompras().subscribe(res => {
-			this.pagamentoCompras = res;
+			this.pagamentoCompra = res;
 		}, err => {
 			this.notificacaoService.mostrarMensagem(
 				"Não foi possível buscar os Pagamentos e as Compras!",
@@ -39,7 +39,7 @@ export class PagamentoCompraPageComponent implements OnInit {
 	remover(pagamentoCompra: PagamentoCompra): void {
 		this.pagamentoCompraService.deletar(pagamentoCompra.codigo).subscribe(
 			res => {
-				this.listarPagamentoCompras();
+				this.listarPagamentoCompra();
 				this.notificacaoService.mostrarMensagem(
 					"Pagamento e compra deletados com sucesso!",
 					"OK",
@@ -58,7 +58,7 @@ export class PagamentoCompraPageComponent implements OnInit {
 		this.dialogo.open(DialogoPagamentoCompraPageComponent, {data: new PagamentoCompra}).afterClosed()
 		.subscribe(result => {
 			if (result) {
-				this.pagamentoCompras.push(result);
+				this.pagamentoCompra.push(result);
 				this.notificacaoService.mostrarMensagem(
 					"Pagamento e Compra salvos com sucesso!",
 					"OK", 3000

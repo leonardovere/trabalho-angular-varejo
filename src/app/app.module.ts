@@ -32,7 +32,8 @@ import {
 	MatSnackBarModule,
 	MatDialogModule,
 	MatInputModule,
-	MatNativeDateModule
+	MatNativeDateModule,
+	MatDatepickerModule
 
 	} from '@angular/material';
 import { HttpClientModule } from '../../node_modules/@angular/common/http';
@@ -57,12 +58,13 @@ import { DialogoCompraComponent } from './compra-page/dialogo-compra/dialogo-com
 import { AdicionarProdutosAoCarrinhoComponent } from './carrinho-page/dialogo-produtos-carrinho/adicionar-produtos-ao-carrinho/adicionar-produtos-ao-carrinho.component';
 import { DialogoNotaComponent } from './nota-page/dialogo-nota/dialogo-nota.component';
 import { CompraPageComponent } from './compra-page/compra-page.component';
-import { NotaPageComponent } from "./nota-page/NotaPageComponent";
+
 import { CompraService } from './services/compra.service';
 import { NotaService } from './services/nota.service';
 import { ImagemPageComponent } from './imagem-page/imagem-page.component';
 import { DialogoImagemComponent } from './imagem-page/dialogo-imagem/dialogo-imagem.component';
 import { ImagemService } from './services/imagem.service';
+import { NotaPageComponent } from './nota-page/nota-page.component';
 
 const appRoutes: Routes = [
 	{ path: 'marca-page', component: MarcaPageComponent },
@@ -99,8 +101,8 @@ const appRoutes: Routes = [
 		DialogoCompraComponent,
 		DialogoNotaComponent,
 		PagamentoPageComponent,
-		PagamentoCompraPageComponent,
 		DialogoPagamentoComponent,
+		PagamentoCompraPageComponent,
 		DialogoPagamentoCompraPageComponent
 		
 	],
