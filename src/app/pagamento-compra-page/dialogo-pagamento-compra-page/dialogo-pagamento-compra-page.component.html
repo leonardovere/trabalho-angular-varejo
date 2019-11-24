@@ -10,7 +10,7 @@
                 <mat-label>Selecione a compra</mat-label>
                 <mat-select [(ngModel)]="pagamentoCompra.compra" name="compra">
                     <mat-option *ngFor="let compra of compras" [value]="compra">
-                    {{ compra.codigo }} - {{ compra.valorcomdesconto }}
+                    {{ compra.codigo }} - {{ compra.valorComDesconto }}
                     </mat-option>
                 </mat-select>
             </mat-form-field><br>
