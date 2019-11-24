@@ -22,7 +22,6 @@ export class CarrinhoPageComponent implements OnInit {
   carrinhosComTotal: CarrinhoComtotal[] = [];
 
 	constructor(
-		private produtoCarrinhoService: ProdutoCarrinhoService,
     private produtoService: ProdutoService,
     private carrinhoService: CarrinhoService,
 		private notificacaoService: NotificacaoService,
@@ -37,9 +36,7 @@ export class CarrinhoPageComponent implements OnInit {
         this.produtoService.retornarQuantidadeProdutos(this.carrinhos[i]).subscribe(
           dados => {
             let carrinho = new CarrinhoComtotal();
-            carrinho.codigo = this.carrinhos[i].codigo;
-            carrinho.pessoa = this.carrinhos[i].pessoa;
-            carrinho.valorTotal = this.carrinhos[i].valorTotal;
+            carrinho.carrinho = this.carrinhos[i];
             carrinho.totalProdutos = Number(dados);
             this.carrinhosComTotal.push(carrinho);
           },
@@ -48,6 +45,7 @@ export class CarrinhoPageComponent implements OnInit {
           }
         );
       }
+      console.log(this.carrinhosComTotal);
 		}, err => {
 			this.notificacaoService.mostrarMensagem(
 				"Não foi possível buscar os carrinhos!",
@@ -56,11 +54,7 @@ export class CarrinhoPageComponent implements OnInit {
 		});
 	}
 
-	remover(carrinhoComTotal: CarrinhoComtotal): void {
-    let carrinho = new Carrinho();
-    carrinho.codigo = carrinhoComTotal.codigo;
-    carrinho.pessoa = carrinhoComTotal.pessoa;
-    carrinho.valorTotal = carrinhoComTotal.valorTotal;
+	remover(carrinho: Carrinho): void {
 		this.carrinhoService.deletar(carrinho.codigo).subscribe(
 			res => {
         this.limparLista();
@@ -83,8 +77,10 @@ export class CarrinhoPageComponent implements OnInit {
 		this.dialogo.open(DialogoCarrinhoComponent, {data: new Carrinho}).afterClosed()
 		.subscribe(result => {
 			if (result) {
-        //this.carrinhos.push(result);
-        this.carrinhosComTotal.push(result);
+        let carrinho = new CarrinhoComtotal();
+        carrinho.carrinho = result;
+        carrinho.totalProdutos = 0;
+        this.carrinhosComTotal.push(carrinho);
 				this.notificacaoService.mostrarMensagem(
 					"Carrinho salvo com sucesso!",
 					"OK", 3000
@@ -102,11 +98,7 @@ export class CarrinhoPageComponent implements OnInit {
 
   }
 
-  alterarCarrinho(carrinhoComTotal: CarrinhoComtotal) {
-    let carrinho = new Carrinho();
-    carrinho.codigo = carrinhoComTotal.codigo;
-    carrinho.pessoa = carrinhoComTotal.pessoa;
-    carrinho.valorTotal = carrinhoComTotal.valorTotal;
+  alterarCarrinho(carrinho: Carrinho) {
     this.dialogo.open(DialogoAlterarCarrinhoComponent, {data: carrinho}).afterClosed()
     .subscribe(
       dados => {
@@ -124,11 +116,7 @@ export class CarrinhoPageComponent implements OnInit {
   }
 
   listarProdutosDoCarrinho(carrinhoComTotal: CarrinhoComtotal) {
-    let carrinho = new Carrinho();
-    carrinho.codigo = carrinhoComTotal.codigo;
-    carrinho.pessoa = carrinhoComTotal.pessoa;
-    carrinho.valorTotal = carrinhoComTotal.valorTotal;
-    this.dialogo.open(ListarProdutosCarrinhoComponent, {data: carrinho}).afterClosed()
+    this.dialogo.open(ListarProdutosCarrinhoComponent, {data: carrinhoComTotal.carrinho}).afterClosed()
     .subscribe(
       result => {
         if (result) {
@@ -145,20 +133,11 @@ export class CarrinhoPageComponent implements OnInit {
   }
 
   adicionarProdutosAoCarrinho(carrinhoComTotal: CarrinhoComtotal) {
-    if (carrinhoComTotal.totalProdutos == null) {
-      carrinhoComTotal.totalProdutos = 0;
-    }
-    let carrinho = new Carrinho();
-    carrinho.codigo = carrinhoComTotal.codigo;
-    carrinho.pessoa = carrinhoComTotal.pessoa;
-    carrinho.valorTotal = carrinhoComTotal.valorTotal;
-    this.dialogo.open(AdicionarProdutosAoCarrinhoComponent, {data: carrinho}).afterClosed().subscribe(
+    console.log(`Carrinho selecionado: ${carrinhoComTotal.carrinho}`)
+    this.dialogo.open(AdicionarProdutosAoCarrinhoComponent, {data: carrinhoComTotal.carrinho}).afterClosed().subscribe(
       dados => {
         if (dados) {
           this.notificacaoService.mostrarMensagem('Produto adicionado ao carrinho !', 'OK', 3000);
-          carrinhoComTotal.codigo = carrinho.codigo;
-          carrinhoComTotal.pessoa = carrinho.pessoa;
-          carrinhoComTotal.valorTotal = carrinho.valorTotal;
           carrinhoComTotal.totalProdutos += dados.quantidade;
         }
       },

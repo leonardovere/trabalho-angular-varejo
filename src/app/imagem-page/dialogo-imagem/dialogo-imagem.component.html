@@ -1,0 +1,32 @@
+<h1 mat-dialog-title>Cadastro de Imagem</h1>
+<div mat-dialog-content>
+
+        <mat-form-field class="full-width">
+            <input name="nome" matInput placeholder="Nome da imagem" [(ngModel)]="imagem.nome">
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field class="full-width">
+            <input name="produto" matInput placeholder="Nome da produto" [(ngModel)]="imagem.produto">
+        </mat-form-field>
+
+        <br>
+
+
+        <mat-form-field class="full-width">
+            <input name="formato" matInput placeholder="Formato da imagem" [(ngModel)]="imagem.formato">
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field class="full-width">
+            <input name="caminho" matInput placeholder="Caminho da imagem" [(ngModel)]="imagem.caminho">
+        </mat-form-field>
+
+</div>
+
+<div mat-dialog-actions fxLayout="row" fxLayoutAlign="end center">
+    <button mat-button (click)="cancelar()" color="accent">Cancelar</button>
+    <button mat-button (click)="salvar()" color="primary">Salvar</button>
+</div>

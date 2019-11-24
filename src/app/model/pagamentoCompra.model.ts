@@ -1,8 +1,9 @@
 import { Pagamento } from './pagamento.model';
+import { Compra } from './compra.model';
 
 export class PagamentoCompra {
     codigo: number;
-    //compra: Compra;
+    compra: Compra;
     pagamento: Pagamento;
     numCartao: number;
     numBoleto: number;

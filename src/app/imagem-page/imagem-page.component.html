@@ -1,0 +1,29 @@
+<div style="margin-left: 15px; margin-top: 15px;">
+
+    <mat-list id="imagemLista" style="max-height: 150vh; overflow-y: auto;">
+
+        <h1 mat-subheader>Imagem</h1>
+
+        <div style="margin-left: 15px; margin-top: 15px;">
+
+            <button id="novaImagem" mat-fab class="bottomButtom" 
+            color="accent" (click)="novaImagem()">
+                <mat-icon>add</mat-icon>
+            </button>
+
+            <mat-list-item *ngFor="let imagem of imagens">
+
+                <h4 mat-line>{{imagem.nome}}</h4>
+                <button mat-icon-button (click)="remover(marca)">
+                    <mat-icon class="iconcolor" 
+                    aria-label="Remover">delete</mat-icon>
+                </button>
+
+
+            </mat-list-item>
+
+        </div>
+
+    </mat-list>
+
+</div>
