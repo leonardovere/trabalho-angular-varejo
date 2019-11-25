@@ -1,3 +1,8 @@
+<!--
+
+<h4>Cadastro de Pagamento</h4>
+
+
 <h1 mat-dialog-title>Cadastro de Pagamento</h1>
 <div mat-dialog-content>
 
@@ -12,3 +17,32 @@
     <button mat-button (click)="cancelar()" color="accent">Cancelar</button>
     <button mat-button (click)="salvar()" color="primary">Salvar</button>
 </div>
+
+-->
+
+
+<h4>Cadastro de Pagamento</h4>
+
+<mat-form-field>
+        <mat-option *ngFor="let pagamento of pagamentos" [value]="pagamento.value">
+            {{pagamento.tipo}}
+        </mat-option>
+  <mat-label>Pagamento</mat-label>
+  <select matNativeControl required>
+    <option value="a vista">Á vista?</option>
+    <option value="cartão">No Cartão?</option>
+    <option value="boleto">No Boleto?</option>
+    <option value="tedoudoc">Por TED/DOC</option>
+  </select>
+
+</mat-form-field>
+
+<div mat-dialog-actions fxLayout="row" fxLayoutAlign="end center">
+    <button mat-button (click)="cancelar()" color="accent">Cancelar</button>
+    <button mat-button (click)="salvar()" color="primary">Salvar</button>
+</div>
+
+
+
+
+
