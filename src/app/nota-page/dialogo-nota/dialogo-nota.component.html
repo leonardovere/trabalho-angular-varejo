@@ -8,7 +8,10 @@
           {{ compra.codigo}} - {{compra.compraCarrinho.pessoa.nome}} - {{ (compra.valorComDesconto == null ? 0 : compra.valorComDesconto) | currency: 'BRL' }}
         </mat-option>
       </mat-select>
-    </mat-form-field><br>
+    </mat-form-field>
+    <!-- <mat-form-field>
+      <input name ="dtNota" type="date" placeholder="dtNota">
+    </mat-form-field> -->
   </div>
 
 <div mat-dialog-actions fxLayout="row" fxLayoutAlign="end center">
