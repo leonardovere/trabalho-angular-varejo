@@ -41,16 +41,14 @@
             </mat-form-field><br>
 
             <mat-form-field>
-                <input matInput [matDatepicker]="picker" [(ngModel)]="pagamentoCompra.dtEmissao" placeholder="Data de emissão" readonly>
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
+                <input name="dtemissao"  type="date" placeholder="Data de Emissão" [(ngModel)]="pagamentoCompra.dtEmissao">
+            </mat-form-field><br>
 
             <mat-form-field>
-                <input matInput [matDatepicker]="picker" [(ngModel)]="pagamentoCompra.dtVencimento" placeholder="Data de vencimento" readonly>
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
+                <input name="dtvencimento"  type="date" placeholder="Data de Vencimento" [(ngModel)]="pagamentoCompra.dtVencimento">
+            </mat-form-field><br>
+
+            
 
             
 

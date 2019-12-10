@@ -3,6 +3,9 @@ import { PagamentoCompra } from 'src/app/model/pagamentoCompra.model';
 import { PagamentoCompraService } from 'src/app/services/pagamento-compra.service';
 import { NotificacaoService } from 'src/app/services/notificacao.service';
 import { MatDialog } from '@angular/material';
+import { Compra } from 'src/app/model/compra.model';
+import { Pagamento } from 'src/app/model/pagamento.model';
+import { CompraService } from 'src/app/services/compra.service';
 
 @Component({
   selector: 'app-dialogo-pagamento-compra-page',
@@ -12,9 +15,13 @@ import { MatDialog } from '@angular/material';
 export class DialogoPagamentoCompraPageComponent {
 
   pagamentoCompra: PagamentoCompra[];
+  compras: Compra[];
+  pagamentos: Pagamento[];
 
 	constructor(
 		private pagamentoCompraService: PagamentoCompraService,
+		private compraService: CompraService,
+		private pagamentoService: Pagam
 		private notificacaoService: NotificacaoService,
 		private dialogo: MatDialog
 	) { }
